@@ -1,0 +1,15 @@
+C:\Users\UCB\Documents\GitHub\SIS112\Mi primer consola en C#\bin\Debug\net8.0\Mi primer consola en C#.exe
+C:\Users\UCB\Documents\GitHub\SIS112\Mi primer consola en C#\bin\Debug\net8.0\Mi primer consola en C#.deps.json
+C:\Users\UCB\Documents\GitHub\SIS112\Mi primer consola en C#\bin\Debug\net8.0\Mi primer consola en C#.runtimeconfig.json
+C:\Users\UCB\Documents\GitHub\SIS112\Mi primer consola en C#\bin\Debug\net8.0\Mi primer consola en C#.dll
+C:\Users\UCB\Documents\GitHub\SIS112\Mi primer consola en C#\bin\Debug\net8.0\Mi primer consola en C#.pdb
+C:\Users\UCB\Documents\GitHub\SIS112\Mi primer consola en C#\obj\Debug\net8.0\Mi primer consola en C#.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\UCB\Documents\GitHub\SIS112\Mi primer consola en C#\obj\Debug\net8.0\Mi primer consola en C#.AssemblyInfoInputs.cache
+C:\Users\UCB\Documents\GitHub\SIS112\Mi primer consola en C#\obj\Debug\net8.0\Mi primer consola en C#.AssemblyInfo.cs
+C:\Users\UCB\Documents\GitHub\SIS112\Mi primer consola en C#\obj\Debug\net8.0\Mi primer consola en C#.csproj.CoreCompileInputs.cache
+C:\Users\UCB\Documents\GitHub\SIS112\Mi primer consola en C#\obj\Debug\net8.0\Mi primer consola en C#.sourcelink.json
+C:\Users\UCB\Documents\GitHub\SIS112\Mi primer consola en C#\obj\Debug\net8.0\Mi primer consola en C#.dll
+C:\Users\UCB\Documents\GitHub\SIS112\Mi primer consola en C#\obj\Debug\net8.0\refint\Mi primer consola en C#.dll
+C:\Users\UCB\Documents\GitHub\SIS112\Mi primer consola en C#\obj\Debug\net8.0\Mi primer consola en C#.pdb
+C:\Users\UCB\Documents\GitHub\SIS112\Mi primer consola en C#\obj\Debug\net8.0\Mi primer consola en C#.genruntimeconfig.cache
+C:\Users\UCB\Documents\GitHub\SIS112\Mi primer consola en C#\obj\Debug\net8.0\ref\Mi primer consola en C#.dll
