@@ -33,8 +33,8 @@ public static void Obtainage()
     public static void AgeCalculation()
     {
         Console.WriteLine ("introduce the year you were born");
-        string? boryearInput = Console.ReadLine();
-        if (string.IsNullOrEmpty(boryearInput))
+        string? bornyearInput = Console.ReadLine();
+        if (string.IsNullOrEmpty(bornyearInput))
         {
             Console.WriteLine("Introduce a correct value");
         }
