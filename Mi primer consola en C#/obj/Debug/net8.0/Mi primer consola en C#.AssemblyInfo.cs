@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Mi primer consola en C#")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9f0c526296ade8f1f2ce527fabe86d8634e5685e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+af14e915b0f31d86f9baab3938190379f81af0f8")]
 [assembly: System.Reflection.AssemblyProductAttribute("Mi primer consola en C#")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Mi primer consola en C#")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
