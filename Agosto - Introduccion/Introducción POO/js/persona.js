@@ -26,4 +26,3 @@ class Persona {
     // Llamar a los métodos
     persona1.saludar();
   }
-  
