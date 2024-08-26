@@ -18,7 +18,7 @@ class Persona {
     return 'Estoy estudiando ' + this.carrera;
   }
 
-  universidad() {
+  institucion_educativa() {
     return 'Estudio en la universidad ' + this.universidad;
   }
 }
@@ -49,5 +49,5 @@ function botonEstudiar() {
 
 // Función para estudiar
 function botonUniversidad() {
-  universidad.textContent = persona.universidad();
+  universidad.textContent = persona.institucion_educativa();
 }
