@@ -19,7 +19,7 @@ class Persona {
   }
 
   universidad() {
-    return 'estudio en la universidad' + this.universidad;
+    return 'Estudio en la universidad ' + this.universidad;
   }
 }
 
@@ -30,7 +30,7 @@ const persona = new Persona('Samuel Aguilera', 18, 'Ingeniería Industrial', 'Ca
 const saludar = document.getElementById('saludar');
 const edad = document.getElementById('edad');
 const carrera = document.getElementById('carrera');
-const universidad = document.getElementById('universidad')
+const universidad = document.getElementById('universidad');
 
 // Función para saludar
 function botonSaludar() {
