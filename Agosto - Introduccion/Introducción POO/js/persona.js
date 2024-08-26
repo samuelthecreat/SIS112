@@ -19,7 +19,7 @@ class Persona {
 }
 
 // Crear una instancia de la clase Persona
-const persona = new Persona('Juan', 25, 'Ingeniería');
+const persona = new Persona('Samuel Aguilera', 18, 'Ingeniería Industrial');
 
 // Inicializar los elementos HTML
 const saludar = document.getElementById('saludar');
