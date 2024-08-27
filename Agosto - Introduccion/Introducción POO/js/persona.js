@@ -18,9 +18,11 @@ class Persona {
     return 'Estoy estudiando ' + this.carrera;
   }
 
-  institucion_educativa() {
+  educacion() {
     return 'Estudio en la universidad ' + this.universidad;
   }
+
+
 }
 
 // Crear una instancia de la clase Persona
@@ -30,7 +32,7 @@ const persona = new Persona('Samuel Aguilera', 18, 'Ingeniería Industrial', 'Ca
 const saludar = document.getElementById('saludar');
 const edad = document.getElementById('edad');
 const carrera = document.getElementById('carrera');
-const universidad = document.getElementById('universidad');
+const universidad = document.getElementById('educacion');
 
 // Función para saludar
 function botonSaludar() {
@@ -49,5 +51,5 @@ function botonEstudiar() {
 
 // Función para estudiar
 function botonUniversidad() {
-  universidad.textContent = persona.institucion_educativa();
+  universidad.textContent = persona.educacion();
 }
