@@ -120,21 +120,21 @@ function botonModificarUniversidad() {
 }
 
 // Función para modificar el saludo
-function botonModifcarSaludo() {
-  saludar.textContent = persona.nuevo_saludo();
+function botonEliminarSaludo() {
+  saludar.textContent = persona.sin_nombre();
 }
 
 // Función para modificar la edad
-function botonModificarEdad() {
-  edad.textContent = persona.nueva_edad();
+function botonEliminarEdad() {
+  edad.textContent = persona.sin_edad();
 }
 
 // Función para modificar la carrera
-function botonModificarCarrera() {
-  carrera.textContent = persona.nuevo_estudio();
+function botonEliminarCarrera() {
+  carrera.textContent = persona.sin_carrera();
 }
 
 // Función para modificar la universidad
-function botonModificarUniversidad() {
-  universidad.textContent = persona.nueva_universidad();
+function botonEliminarUniversidad() {
+  universidad.textContent = persona.sin_educacion();
 }
