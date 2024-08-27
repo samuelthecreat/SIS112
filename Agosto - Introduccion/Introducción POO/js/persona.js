@@ -66,7 +66,7 @@ class Persona {
   sin_educacion(){
     alert ('su nombre ha sido eliminado')
     this.nombre = ""
-    return this.nombre
+    return this.universidad
   }
 }
 
@@ -97,4 +97,44 @@ function botonEstudiar() {
 // Función para estudiar
 function botonUniversidad() {
   universidad.textContent = persona.educacion();
+}
+
+// Función para modificar el saludo
+function botonModifcarSaludo() {
+  saludar.textContent = persona.nuevo_saludo();
+}
+
+// Función para modificar la edad
+function botonModificarEdad() {
+  edad.textContent = persona.nueva_edad();
+}
+
+// Función para modificar la carrera
+function botonModificarCarrera() {
+  carrera.textContent = persona.nuevo_estudio();
+}
+
+// Función para modificar la universidad
+function botonModificarUniversidad() {
+  universidad.textContent = persona.nueva_universidad();
+}
+
+// Función para modificar el saludo
+function botonModifcarSaludo() {
+  saludar.textContent = persona.nuevo_saludo();
+}
+
+// Función para modificar la edad
+function botonModificarEdad() {
+  edad.textContent = persona.nueva_edad();
+}
+
+// Función para modificar la carrera
+function botonModificarCarrera() {
+  carrera.textContent = persona.nuevo_estudio();
+}
+
+// Función para modificar la universidad
+function botonModificarUniversidad() {
+  universidad.textContent = persona.nueva_universidad();
 }
