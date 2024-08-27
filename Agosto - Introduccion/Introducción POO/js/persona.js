@@ -41,7 +41,7 @@ class Persona {
 
   nueva_universidad(){
     this.universidad = prompt ('ingrese una nueva universidad')
-    return 'Ahora estudio en la Universidad' + this.universidad;
+    return 'Ahora estudio en la Universidad ' + this.universidad;
   }
 
   //funciones que eliminan a la base, devuelven un vacio
@@ -64,8 +64,8 @@ class Persona {
   }
 
   sin_educacion(){
-    alert ('su nombre ha sido eliminado')
-    this.nombre = ""
+    alert ('su universidad ha sido eliminada')
+    this.universidad = ""
     return this.universidad
   }
 }
