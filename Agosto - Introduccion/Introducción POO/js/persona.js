@@ -95,12 +95,12 @@ function botonEstudiar() {
 }
 
 // Función para estudiar
-function botonUniversidad() {
+function botonInstituto() {
   universidad.textContent = persona.insti();
 }
 
 // Función para modificar el saludo
-function botonModifcarSaludo() {
+function botonModificarSaludo() {
   saludar.textContent = persona.nuevo_saludo();
 }
 
