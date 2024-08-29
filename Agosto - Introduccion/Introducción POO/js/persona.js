@@ -31,7 +31,13 @@ class Persona {
 
   nueva_edad(){
     this.edad = prompt ('ingrese su nueva edad')
-    return 'Ahora tengo ' + this.edad + ' años ';
+    if (this.edad > 0){
+      return 'Ahora tengo ' + this.edad + ' años ';
+    }
+    else{
+      this.edad = prompt ('ingrese nuevamente su edad')
+      return 'Ahora tengo ' + this.edad + ' años ';
+    }
   }
 
   nuevo_estudio(){
