@@ -31,10 +31,10 @@ class Persona {
 
   nueva_edad(){
     this.edad = prompt ('ingrese su nueva edad')
-    while (this.edad > 0){
+    while (this.edad > 0) {
       return 'Ahora tengo ' + this.edad + ' años ';
     }
-    if (this.edad < 0) {
+    if (this.edad <= 1) {
       this.edad = prompt ('ingrese nuevamente su edad')
       return 'Ahora tengo ' + this.edad + ' años ';
     }
