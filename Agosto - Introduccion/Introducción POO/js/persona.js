@@ -25,7 +25,7 @@ class Persona {
 
   //funciones que modifican a la base
   nuevo_saludo(){
-    this.nombre = prompt ('ingrese un nuevo nombre')
+    this.nombre = prompt('Ingrese un nuevo nombre')
     return 'Hola, yo soy ' + this.nombre;
   }
 
