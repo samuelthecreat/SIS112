@@ -20,22 +20,46 @@ class Persona:
 
     # Funciones que modifican a la base
     def nuevo_saludo(self):
-        self.nombre = input('Ingrese un nuevo nombre: ')
+        while True:
+            nombre = input('Ingrese un nuevo nombre: ')
+            if re.match("^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$", nombre):
+                self.nombre = nombre
+                break
+            else:
+                print('Error: El nombre solo puede contener letras y espacios.')
         return f'Hola, yo soy {self.nombre}.'
 
     def nueva_edad(self):
-        self.edad = int(input('Ingrese su nueva edad: '))
-        while self.edad <= 0:
-            print('Ha ocurrido un error, ingrese su edad nuevamente')
-            self.edad = int(input('Ingrese nuevamente su edad: '))
+        while True:
+            try:
+                edad = int(input('Ingrese su nueva edad: '))
+                if edad > 0:
+                    self.edad = edad
+                    break
+                else:
+                    print('Error: La edad debe ser un número positivo mayor que cero.')
+            except ValueError:
+                print('Error: Debe ingresar un número válido.')
         return f'Ahora tengo {self.edad} años.'
 
     def nuevo_estudio(self):
-        self.carrera = input('Ingrese una nueva carrera: ')
+        while True:
+            carrera = input('Ingrese una nueva carrera: ')
+            if re.match("^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$", carrera):
+                self.carrera = carrera
+                break
+            else:
+                print('Error: La carrera solo puede contener letras y espacios.')
         return f'Ahora estudio {self.carrera}.'
 
     def nueva_universidad(self):
-        self.universidad = input('Ingrese una nueva universidad: ')
+        while True:
+            universidad = input('Ingrese una nueva universidad: ')
+            if re.match("^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$", universidad):
+                self.universidad = universidad
+                break
+            else:
+                print('Error: La universidad solo puede contener letras y espacios.')
         return f'Ahora estudio en la Universidad {self.universidad}.'
 
     # Funciones que eliminan a la base, devuelven un vacío
