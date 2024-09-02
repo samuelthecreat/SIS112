@@ -1,3 +1,5 @@
+import re
+
 class Persona:
     def __init__(self, nombre, edad, carrera, universidad):
         self.nombre = nombre
