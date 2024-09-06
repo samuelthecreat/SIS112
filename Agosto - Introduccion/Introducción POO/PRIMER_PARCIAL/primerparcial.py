@@ -126,7 +126,7 @@ materia1 = Materia(
     nombremat = "Programacion I",
     sigla = "SIS111", 
     docente = "Eddy",
-    horario = "lunes de 10-12 y viernes de 10-13",
+    horario = "lunes de 11-12 y viernes de 11-13",
     aula = "laboratorio C2-2",
     prerequisito = "intro a progra",
     carrera = "ingenieria indutrial",
@@ -159,10 +159,22 @@ materia3 = Materia(
 )
 
 materia4 = Materia(
-    nombremat = "",
-    sigla = "SIS111", 
-    docente = "Eddy",
-    horario = "lunes de 10-12 y viernes de 10-13",
+    nombremat = "Antropologia",
+    sigla = "FHC111", 
+    docente = "Gabriela de la barra",
+    horario = "martes y jueves 11-12 ",
+    aula = "Sala E2-5",
+    prerequisito = "ninguno",
+    carrera = "ingenieria indutrial",
+    universidad= "Catolica Boliviana", 
+    inscritos= "60"
+)
+
+materia5 = Materia(
+    nombremat = "Fisica I",
+    sigla = "FIS111", 
+    docente = "Chicho",
+    horario = "Lunes 9-11 y miercoles",
     aula = "laboratorio C2-2",
     prerequisito = "intro a progra",
     carrera = "ingenieria indutrial",
@@ -170,17 +182,6 @@ materia4 = Materia(
     inscritos= "15"
 )
 
-materia5 = Materia(
-    nombremat = "Programacion I",
-    sigla = "SIS111", 
-    docente = "Eddy",
-    horario = "lunes de 10-12 y viernes de 10-13",
-    aula = "laboratorio C2-2",
-    prerequisito = "intro a progra",
-    carrera = "ingenieria indutrial",
-    universidad= "Catolica Boliviana", 
-    inscritos= "15"
-)
 #llamado de las funciones basicas
 print(materia1.materia())
 print(materia1.acronimo())         
