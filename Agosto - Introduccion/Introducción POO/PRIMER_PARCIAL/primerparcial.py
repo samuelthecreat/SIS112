@@ -134,6 +134,53 @@ materia1 = Materia(
     inscritos= "15"
 )
 
+materia2 = Materia(
+    nombremat = "Manufactura",
+    sigla = "IND112", 
+    docente = "Jorge",
+    horario = "martes, jueves y viernes de 7 a 9",
+    aula = "Laboratorio de procesos",
+    prerequisito = "intro a diseo industrial",
+    carrera = "ingenieria indutrial",
+    universidad= "Catolica Boliviana", 
+    inscritos= "15"
+)
+
+materia3 = Materia(
+    nombremat = "Calculo I",
+    sigla = "MAT142", 
+    docente = "Tomas",
+    horario = "lunes y miercoles de 14-16",
+    aula = "Sala 12AN4",
+    prerequisito = "Matematica basica",
+    carrera = "ingenieria indutrial",
+    universidad= "Catolica Boliviana", 
+    inscritos= "25"
+)
+
+materia4 = Materia(
+    nombremat = "",
+    sigla = "SIS111", 
+    docente = "Eddy",
+    horario = "lunes de 10-12 y viernes de 10-13",
+    aula = "laboratorio C2-2",
+    prerequisito = "intro a progra",
+    carrera = "ingenieria indutrial",
+    universidad= "Catolica Boliviana", 
+    inscritos= "15"
+)
+
+materia5 = Materia(
+    nombremat = "Programacion I",
+    sigla = "SIS111", 
+    docente = "Eddy",
+    horario = "lunes de 10-12 y viernes de 10-13",
+    aula = "laboratorio C2-2",
+    prerequisito = "intro a progra",
+    carrera = "ingenieria indutrial",
+    universidad= "Catolica Boliviana", 
+    inscritos= "15"
+)
 #llamado de las funciones basicas
 print(materia1.materia())
 print(materia1.acronimo())         
@@ -145,8 +192,8 @@ print(materia1.profesion())
 print(materia1.uni())              
 print(materia1.compañeros())
 
-
-print (materia1.nueva_materia())
+#funciones de 
+print(materia1.nueva_materia())
 print(materia1.nueva_acronimo())      
 print(materia1.nuevo_docente())    
 print(materia1.nuevo_horario())   
@@ -156,7 +203,7 @@ print(materia1.nueva_carrera())
 print(materia1.nueva_universidad()) 
 print(materia1.nuevos_inscritos())
 
-print (materia1.sin_materia())     
+print(materia1.sin_materia())     
 print(materia1.sin_sigla())        
 print(materia1.sin_docente())     
 print(materia1.sin_horario())      
