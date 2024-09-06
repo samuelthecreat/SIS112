@@ -77,32 +77,32 @@ class Materia:
     
     #funciones de eliminacion
     def sin_materia(self):
-        print ("su materia ha sido retirada")
+        print ("su anterior materia ha sido retirada")
         self.nombremat = ""
         return self.nombremat 
     
     def sin_sigla(self):
-        print("La sigla de la materia ha sido retirada")
+        print("La sigla de la anterior materia ha sido retirada")
         self.sigla = ""
         return self.sigla
 
     def sin_docente(self):
-        print("El docente de la materia ha sido retirado")
+        print("El docente de la anterior materia ha sido retirado")
         self.docente = ""
         return self.docente
 
     def sin_horario(self):
-        print("El horario de la materia ha sido retirado")
+        print("El horario de la anterior materia ha sido retirado")
         self.horario = ""
         return self.horario
 
     def sin_aula(self):
-        print("El aula de la materia ha sido retirada")
+        print("El aula de la anterior materia ha sido retirada")
         self.aula = ""
         return self.aula
 
     def sin_prerequisito(self):
-        print("El prerequisito de la materia ha sido retirado")
+        print("El prerequisito de la anterior materia ha sido retirado")
         self.prerequisito = ""
         return self.prerequisito
 
@@ -112,12 +112,12 @@ class Materia:
         return self.carrera
 
     def sin_universidad(self):
-        print("La universidad ha sido retirada")
+        print("La anterior universidad ahora esta en refaccion")
         self.universidad = ""
         return self.universidad
 
     def sin_inscritos(self):
-        print("La cantidad de inscritos ha sido retirada")
+        print("La cantidad de inscritos ha pasado al nuevo curso")
         self.inscritos = ""
         return self.inscritos
     
@@ -126,7 +126,7 @@ materia1 = Materia(
     nombremat = "Programacion I",
     sigla = "SIS111", 
     docente = "Eddy",
-    horario = ["lunes de 10-12", "viernes de 10-13"],
+    horario = "lunes de 10-12 y viernes de 10-13",
     aula = "laboratorio C2-2",
     prerequisito = "intro a progra",
     carrera = "ingenieria indutrial",
@@ -134,5 +134,34 @@ materia1 = Materia(
     inscritos= "15"
 )
 
-#llamado de las funciones
-print (materia1.materia())
+#llamado de las funciones basicas
+print(materia1.materia())
+print(materia1.acronimo())         
+print(materia1.profesor())         
+print(materia1.hora())             
+print(materia1.clase())         
+print(materia1.requi())           
+print(materia1.profesion())        
+print(materia1.uni())              
+print(materia1.compañeros())
+
+
+print (materia1.nueva_materia())
+print(materia1.nueva_acronimo())      
+print(materia1.nuevo_docente())    
+print(materia1.nuevo_horario())   
+print(materia1.nueva_aula())       
+print(materia1.nuevo_prerequisito()) 
+print(materia1.nueva_carrera())   
+print(materia1.nueva_universidad()) 
+print(materia1.nuevos_inscritos())
+
+print (materia1.sin_materia())     
+print(materia1.sin_sigla())        
+print(materia1.sin_docente())     
+print(materia1.sin_horario())      
+print(materia1.sin_aula())         
+print(materia1.sin_prerequisito()) 
+print(materia1.sin_carrera())     
+print(materia1.sin_universidad())  
+print(materia1.sin_inscritos())
