@@ -94,7 +94,7 @@ print(persona.saludar())
 print(persona.cumpleanios())
 print(persona.estudiar())
 print(persona.insti_educativo())
-
+print ("")
 # Modificar y mostrar los valores actualizados
 print(persona.nuevo_saludo())
 print(persona.nueva_edad())
