@@ -179,7 +179,19 @@ materia5 = Materia(
     prerequisito = "intro a progra",
     carrera = "ingenieria indutrial",
     universidad= "Catolica Boliviana", 
-    inscritos= "15"
+    inscritos= "40"
+)
+
+materia6 = Materia(
+    nombremat = "Estadistica",
+    sigla = "MAT142", 
+    docente = "Silvia",
+    horario = "Martes y jueves de 11-12",
+    aula = "laboratorio D2-1",
+    prerequisito = "ninguno",
+    carrera = "ingenieria indutrial",
+    universidad= "Catolica Boliviana", 
+    inscritos= "20"
 )
 
 #llamado de las funciones basicas
