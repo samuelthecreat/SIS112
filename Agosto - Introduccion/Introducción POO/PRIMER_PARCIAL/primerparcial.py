@@ -1,5 +1,5 @@
 class Materia: 
-    def __init__(self, nombremat, sigla, docente, horario, aula, prerequisito, carrera, universidad, inscritos):
+    def __init__(self, nombremat, sigla, docente, horario, aula, prerequisito, carrera, universidad, inscritos, modulo, calificacion, temas, ubicacion):
         self.nombremat = nombremat
         self.sigla = sigla
         self.docente = docente
@@ -9,6 +9,10 @@ class Materia:
         self.carrera = carrera
         self.universidad = universidad
         self.inscritos = inscritos
+        self.modalidad = modulo
+        self.calificacion = calificacion
+        self.temas = temas 
+        self.ubi = ubicacion
         
     #funciones de creacion    
     def materia(self): 
@@ -37,6 +41,18 @@ class Materia:
         
     def compañeros(self): 
         return f"hay {self.inscritos} inscritos en {self.nombremat}"
+    
+    def modular(self): 
+        return f"las clases se pasan de manera {self.modalidad}"
+    
+    def notaminima (self): 
+        return f"la nota minima es de {self.calificacion}"
+    
+    def tema(self): 
+        return f"los temas que se pasan en la materia son {self.temas}"
+    
+    def ubicacion(self): 
+        return f"la ubicacion de la clase es {self.ubi}"
     
     #funciones de modificacion
     def nueva_materia(self): 
@@ -75,6 +91,22 @@ class Materia:
         self.inscritos = input("¿Cuántos inscritos hay ahora?")
         return f"Ahora hay {self.inscritos} inscritos en {self.nombremat}"
     
+    def nueva_modalidad(self): 
+        self.modalidad = input("¿Cual es la modalidad de la materia - sugerencia: presencial, virtual, hibrida")
+        return f"ahora la modalidad es {self.modalidad}"
+    
+    def nueva_nota (self): 
+        self.calificacion = input ("¿cual es la nueva nota minima? - sugerencia 51 a 60")
+        return f"la nueva nota minima es {self.calificacion}"
+    
+    def nuevo_tema (self): 
+        self.temas = input ("cuales son los nuevos temas")
+        return f"los nuevos temas son {self.temas}"
+    
+    def nueva_ubi (self): 
+        self.ubi = input ("cual es la nueva ubicacion - sugerencia (-17.69,-63.15)")
+        return f"la ubicacion es {self.ubi}"
+        
     #funciones de eliminacion
     def sin_materia(self):
         print ("su anterior materia ha sido retirada")
@@ -121,6 +153,27 @@ class Materia:
         self.inscritos = ""
         return self.inscritos
     
+    def sin_modulo(self): 
+        print ("la modalidad anterior ha cambiado a la actual")
+        self.modalidad = ""
+        return self.modalidad
+    
+    def sin_nota(self): 
+        print ("la nota anterior ha sido modificada")
+        self.calificacion = ""
+        return self.calificacion
+    
+    def sin_tema(self): 
+        print ("los temas de la anterior materia ya se han pasado")
+        self.temas = ""
+        return self.temas 
+    
+    def sin_ubi(self):
+        print ("la ubicacion ingresada ha sido aceptada correctamente")
+        self.ubi = ""
+        return self.ubi
+    
+    
 #creacion de instancia
 materia1 = Materia(
     nombremat = "Programacion I",
@@ -131,7 +184,12 @@ materia1 = Materia(
     prerequisito = "intro a progra",
     carrera = "ingenieria indutrial",
     universidad= "Catolica Boliviana", 
-    inscritos= "15"
+    inscritos= "15",
+    modulo = "presencial, virtual, hibrida", 
+    calificacion = "60", 
+    temas = "programacion orientada a objetos", 
+    ubicacion = "-17.69,-63.15"
+    
 )
 
 materia2 = Materia(
@@ -143,7 +201,11 @@ materia2 = Materia(
     prerequisito = "intro a diseo industrial",
     carrera = "ingenieria indutrial",
     universidad= "Catolica Boliviana", 
-    inscritos= "15"
+    inscritos= "15",
+    modulo = "presencial, virtual, hibrida", 
+    calificacion = "60", 
+    temas = "Fundicion, formado, soldadura, manufactura aditiva", 
+    ubicacion = "-17.69,-63.15"
 )
 
 materia3 = Materia(
@@ -155,7 +217,11 @@ materia3 = Materia(
     prerequisito = "Matematica basica",
     carrera = "ingenieria indutrial",
     universidad= "Catolica Boliviana", 
-    inscritos= "25"
+    inscritos= "25",
+    modulo = "presencial, virtual, hibrida", 
+    calificacion = "60", 
+    temas = "Funciones, derivadas, limites, integrales", 
+    ubicacion = "-17.69,-63.15"
 )
 
 materia4 = Materia(
@@ -167,7 +233,11 @@ materia4 = Materia(
     prerequisito = "ninguno",
     carrera = "ingenieria indutrial",
     universidad= "Catolica Boliviana", 
-    inscritos= "60"
+    inscritos= "60",
+    modulo = "presencial, virtual, hibrida", 
+    calificacion = "60", 
+    temas = "Antropologia, Valores", 
+    ubicacion = "-17.69,-63.15"
 )
 
 materia5 = Materia(
@@ -179,7 +249,11 @@ materia5 = Materia(
     prerequisito = "intro a progra",
     carrera = "ingenieria indutrial",
     universidad= "Catolica Boliviana", 
-    inscritos= "40"
+    inscritos= "40",
+    modulo = "presencial, virtual, hibrida", 
+    calificacion = "60", 
+    temas = "Magnitudes y vectores, cinematica, dinamica, mecanica", 
+    ubicacion = "-17.69,-63.15"
 )
 
 materia6 = Materia(
@@ -191,7 +265,11 @@ materia6 = Materia(
     prerequisito = "ninguno",
     carrera = "ingenieria indutrial",
     universidad= "Catolica Boliviana", 
-    inscritos= "20"
+    inscritos= "20", 
+    modulo = "presencial, virtual, hibrida", 
+    calificacion = "60", 
+    temas = "organizacion de datos, tendencia, probabilidad, distribuciones", 
+    ubicacion = "-17.69,-63.15"
 )
 
 #llamado de las funciones basicas
@@ -205,6 +283,10 @@ print(materia1.requi())
 print(materia1.profesion())        
 print(materia1.uni())              
 print(materia1.compañeros())
+print(materia1.modular())
+print(materia1.notaminima())
+print(materia1.tema())
+print(materia1.ubicacion())
 
 print("SEGUNDA MATERIA - MANUFACTURA")
 print(materia2.materia())
@@ -216,6 +298,10 @@ print(materia2.requi())
 print(materia2.profesion())        
 print(materia2.uni())              
 print(materia2.compañeros())
+print(materia2.modular())
+print(materia2.notaminima())
+print(materia2.tema())
+print(materia2.ubicacion())
 
 print("TERCER MATERIA - CALCULO I")
 print(materia3.materia())
@@ -227,6 +313,10 @@ print(materia3.requi())
 print(materia3.profesion())        
 print(materia3.uni())              
 print(materia3.compañeros())
+print(materia3.modular())
+print(materia3.notaminima())
+print(materia3.tema())
+print(materia3.ubicacion())
 
 print("CUARTA MATERIA - ANTROPOLOGIA")
 print(materia4.materia())
@@ -238,6 +328,10 @@ print(materia4.requi())
 print(materia4.profesion())        
 print(materia4.uni())              
 print(materia4.compañeros())
+print(materia4.modular())
+print(materia4.notaminima())
+print(materia4.tema())
+print(materia4.ubicacion())
 
 print("QUINTA MATERIA - FISICA I")
 print(materia5.materia())
@@ -249,6 +343,10 @@ print(materia5.requi())
 print(materia5.profesion())        
 print(materia5.uni())              
 print(materia5.compañeros())
+print(materia5.modular())
+print(materia5.notaminima())
+print(materia5.tema())
+print(materia5.ubicacion())
 
 print("SEXTA MATERIA - ESTADISTICA I")
 print(materia6.materia())
@@ -260,6 +358,10 @@ print(materia6.requi())
 print(materia6.profesion())        
 print(materia6.uni())              
 print(materia6.compañeros())
+print(materia6.modular())
+print(materia6.notaminima())
+print(materia6.tema())
+print(materia6.ubicacion())
 
 #funciones de modificacion
 print("PRIMER MATERIA - PROGRAMACION I")
@@ -272,6 +374,10 @@ print(materia1.nuevo_prerequisito())
 print(materia1.nueva_carrera())   
 print(materia1.nueva_universidad()) 
 print(materia1.nuevos_inscritos())
+print(materia1.nueva_modalidad())
+print(materia1.nueva_nota())
+print(materia1.nuevo_tema())
+print(materia1.nueva_ubi())
 
 print("SEGUNDA MATERIA - MANUFACTURA")
 print(materia2.nueva_materia())
