@@ -56,55 +56,55 @@ class Materia:
     
     #funciones de modificacion
     def nueva_materia(self): 
-        self.nombremat = input ("su nueva materia es:")
+        self.nombremat = input ("su nueva materia es: ")
         return f"ahora curso la materia de {self.nombremat}"
     
     def nueva_acronimo(self):
-        self.sigla = input("¿Cuál es la nueva sigla de la materia?")
+        self.sigla = input("¿Cuál es la nueva sigla de la materia?--> ")
         return f"La nueva sigla de la materia es {self.sigla}"
 
     def nuevo_docente(self):
-        self.docente = input("¿Quién es el nuevo docente?")
+        self.docente = input("¿Quién es el nuevo docente? --> ")
         return f"El nuevo docente de la materia es {self.docente}"
 
     def nuevo_horario(self):
-        self.horario = input("¿Cuál es el nuevo horario de la materia?")
+        self.horario = input("¿Cuál es el nuevo horario de la materia? --> ")
         return f"El nuevo horario de la materia es {self.horario}"
 
     def nueva_aula(self):
-        self.aula = input("¿Cuál es el nuevo aula de la materia?")
+        self.aula = input("¿Cuál es el nuevo aula de la materia? --> ")
         return f"El nuevo aula de la materia es {self.aula}"
 
     def nuevo_prerequisito(self):
-        self.prerequisito = input("¿Cuál es el nuevo prerequisito?")
+        self.prerequisito = input("¿Cuál es el nuevo prerequisito? --> ")
         return f"Ahora se requiere haber pasado {self.prerequisito}"
 
     def nueva_carrera(self):
-        self.carrera = input("¿Cuál es la nueva carrera?")
+        self.carrera = input("¿Cuál es la nueva carrera? --> ")
         return f"Ahora estoy en la carrera de {self.carrera}"
 
     def nueva_universidad(self):
-        self.universidad = input("¿Cuál es la nueva universidad?")
+        self.universidad = input("¿Cuál es la nueva universidad? -->")
         return f"Ahora estoy en la universidad {self.universidad}"
 
     def nuevos_inscritos(self):
-        self.inscritos = input("¿Cuántos inscritos hay ahora?")
+        self.inscritos = input("¿Cuántos inscritos hay ahora? -->")
         return f"Ahora hay {self.inscritos} inscritos en {self.nombremat}"
     
     def nueva_modalidad(self): 
-        self.modalidad = input("¿Cual es la modalidad de la materia - sugerencia: presencial, virtual, hibrida")
+        self.modalidad = input("¿Cual es la modalidad de la materia - sugerencia: presencial, virtual, hibrida -->")
         return f"ahora la modalidad es {self.modalidad}"
     
     def nueva_nota (self): 
-        self.calificacion = input ("¿cual es la nueva nota minima? - sugerencia 51 a 60")
+        self.calificacion = input ("¿cual es la nueva nota minima? - sugerencia 51 a 60 -->")
         return f"la nueva nota minima es {self.calificacion}"
     
     def nuevo_tema (self): 
-        self.temas = input ("cuales son los nuevos temas")
+        self.temas = input ("cuales son los nuevos temas -->")
         return f"los nuevos temas son {self.temas}"
     
     def nueva_ubi (self): 
-        self.ubi = input ("cual es la nueva ubicacion - sugerencia (-17.69,-63.15)")
+        self.ubi = input ("cual es la nueva ubicacion - sugerencia (-17.69,-63.15) -->")
         return f"la ubicacion es {self.ubi}"
         
     #funciones de eliminacion
