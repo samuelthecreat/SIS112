@@ -109,7 +109,7 @@ class Materia:
         
     #funciones de eliminacion
     def sin_materia(self):
-        print ("su anterior materia ha sido retirada")
+        print ("su anterior materia fue vencida exitosamente")
         self.nombremat = ""
         return self.nombremat 
     
@@ -119,17 +119,17 @@ class Materia:
         return self.sigla
 
     def sin_docente(self):
-        print("El docente de la anterior materia ha sido retirado")
+        print("El docente de la anterior materia ha sido redireccionado")
         self.docente = ""
         return self.docente
 
     def sin_horario(self):
-        print("El horario de la anterior materia ha sido retirado")
+        print("El horario de la anterior materia ha sido redireccionado")
         self.horario = ""
         return self.horario
 
     def sin_aula(self):
-        print("El aula de la anterior materia ha sido retirada")
+        print("El aula de la anterior materia ha sido redireccionada")
         self.aula = ""
         return self.aula
 
@@ -139,12 +139,12 @@ class Materia:
         return self.prerequisito
 
     def sin_carrera(self):
-        print("La carrera ha sido retirada")
+        print("La carrera ha sido redireccionada a otra sede")
         self.carrera = ""
         return self.carrera
 
     def sin_universidad(self):
-        print("La anterior universidad ahora esta en refaccion")
+        print("La universidad esta en refaccion, contamos con problemas tecnicos")
         self.universidad = ""
         return self.universidad
 
