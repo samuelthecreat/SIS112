@@ -17,14 +17,14 @@ class Entero {
         const resultado = document.getElementById("resultado");
         resultado.textContent = this.getNum();
     }
-
+    
 }
-var ClaseEntero = new Entero(0);
+var classEntero = new Entero(0);
 
 function cargarNum(){
-    ClaseEntero.setNum();
+    classEntero.setNum();
 }
 
 function mostrarNum(){
-    ClaseEntero.showNum
+    classEntero.showNum
 }
