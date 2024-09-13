@@ -19,6 +19,42 @@ class Entero {
         const resultadoDiv = document.getElementById('resultado');
         resultadoDiv.textContent = this.getNum();
     }
+
+    showResultado(respuesta){
+        const resultadoDiv = document.getElementById('resultado');
+        resultadoDiv.textContent = respuesta;
+    }
+    incrementarNum(){
+        this.Num = this.Num +1;
+    }
+
+    decrementarNum(){
+        this.Num = this.Num -1;
+    }
+
+    esPar(){
+        if(this.Num /2 !== 0){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    esParImpar (){
+        return (this.Num % 2 == 0)
+    }
+
+    esPositivo(){
+        if (this.Num < 0){
+            return true; 
+        }else{
+            return false;
+        }    
+    }
+
+    esPosiNega(){
+        return (this.Num > 0)
+    }
 }
 
 //Las funciones = button HTML
@@ -32,3 +68,24 @@ function cargarNum() {
 function mostrarNum(){
     ClaseEntero.showNum();
 }
+ function incrementarValor(){
+    ClaseEntero.incrementarNum()
+    ClaseEntero.showNum();
+ }
+
+ function decrementarValor(){
+    ClaseEntero.decrementarNum();
+    ClaseEntero.showNum();
+ }
+
+ function esParImparNum(){
+    var respuesta = ClaseEntero.esParImpar();
+    var resp = respuesta ? "Es Num par":"Es num Impar";
+    ClaseEntero.showResultado(resp)
+ }
+
+ function esPosiNegaNum(){
+    var respuesta = ClaseEntero.esPosiNega();
+    var resp = respuesta ? "Es Num positivo":"Es num negativo";
+    ClaseEntero.showResultado(resp)
+ }
