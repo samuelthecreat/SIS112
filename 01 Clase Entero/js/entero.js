@@ -1,30 +1,33 @@
 class Entero {
+    //Atributos
     Num;
-
-    constructor(Num){
-        this.Num = numero;
+    //Constructor = inicializa el objeto
+    constructor(Numero){
+        this.Num = Numero;
     }
-//class cargar el valor de numero
+    //CLASS - Cargar el valor de Num
     setNum(){
-        this.Num = 10;
+        this.Num = 2024;
     }
-//obtener el valor del numero
+    //CLASS - Obtener el valor de Num
     getNum() {
-    return this.Num;    
+        return this.Num;
     }
-//obtener el valor del numero
+    //CLASS - Mostrar el valor de Num
     showNum(){
-        const resultado = document.getElementById("resultado");
-        resultado.textContent = this.getNum();
+        const resultadoDiv = document.getElementById('resultado');
+        resultadoDiv.textContent = this.getNum();
     }
-    
 }
-var classEntero = new Entero(0);
 
-function cargarNum(){
-    classEntero.setNum();
+//Las funciones = button HTML
+var ClaseEntero = new Entero(0); //Se inicializo en 0
+
+//Crear el objeto
+function cargarNum() {
+    ClaseEntero.setNum();
 }
 
 function mostrarNum(){
-    classEntero.showNum
+    ClaseEntero.showNum();
 }
