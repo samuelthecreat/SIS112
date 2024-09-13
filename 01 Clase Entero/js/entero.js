@@ -7,7 +7,8 @@ class Entero {
     }
     //CLASS - Cargar el valor de Num
     setNum(){
-        this.Num = 2024;
+        const input = document.getElementById('numeroInput');
+        this.Num = parseInt(input.value, 10);
     }
     //CLASS - Obtener el valor de Num
     getNum() {
