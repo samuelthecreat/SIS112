@@ -5,7 +5,14 @@ class Entero {
         this.Num = numero;
     }
 
-    Obtenernumero() {
+    cargarNum(){
+        this.Num = 10;
+    }
+
+    Mostrarnumero() {
+        const resultado = document.getElementById("resultado");
+        resultado.textContent = this.Num
+        
     return this.Num;    
     }
 
