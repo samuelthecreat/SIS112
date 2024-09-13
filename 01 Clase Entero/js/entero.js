@@ -4,16 +4,27 @@ class Entero {
     constructor(Num){
         this.Num = numero;
     }
-
-    cargarNum(){
+//class cargar el valor de numero
+    setNum(){
         this.Num = 10;
     }
-
-    Mostrarnumero() {
-        const resultado = document.getElementById("resultado");
-        resultado.textContent = this.Num
-        
+//obtener el valor del numero
+    getNum() {
     return this.Num;    
     }
+//obtener el valor del numero
+    showNum(){
+        const resultado = document.getElementById("resultado");
+        resultado.textContent = this.getNum();
+    }
 
+}
+var ClaseEntero = new Entero(0);
+
+function cargarNum(){
+    ClaseEntero.setNum();
+}
+
+function mostrarNum(){
+    ClaseEntero.showNum
 }
