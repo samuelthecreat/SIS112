@@ -32,6 +32,7 @@ class Entero:
             if self.Num % i == 0:
                 return False
         return True
+    
     def esPerfecto(self):
         if self.Num <= 0:
             return False
