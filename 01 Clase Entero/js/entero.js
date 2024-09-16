@@ -100,18 +100,6 @@ class Entero {
 
         return suma === this.Num;
     }
-    // Método para verificar si es un número de Armstrong
-    esArmstrong() {
-        let numStr = this.Num.toString();
-        let numDigits = numStr.length;
-        let suma = 0;
-
-        for (let char of numStr) {
-            suma += Math.pow(parseInt(char), numDigits);
-        }
-
-        return suma === this.Num;
-    }
 }
 
 
