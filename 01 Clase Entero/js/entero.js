@@ -113,24 +113,6 @@ class Entero {
         
         return true; // Si no se encuentran divisores, es primo
     }
-
-    generarFibonacci() {
-        let num = this.Num;
-        let fibonacciSerie = [];
-    
-        if (num <= 0) {
-            return []; // Si el número es menor o igual a 0, devuelve una serie vacía
-        } else if (num === 1) {
-            return [0]; // Si el número es 1, devuelve [0] como la serie de Fibonacci
-        } else {
-            fibonacciSerie = [0, 1]; // Inicializa la serie con los dos primeros números de Fibonacci
-            for (let i = 2; i < num; i++) {
-                fibonacciSerie.push(fibonacciSerie[i - 1] + fibonacciSerie[i - 2]);
-            }
-        }
-    
-        return fibonacciSerie;
-    }
 }
 
 
@@ -189,10 +171,4 @@ function mostrarNum(){
     var respuesta = ClaseEntero.esPrimo(); 
     var resp = respuesta ? "es primo": "no es primo"
     ClaseEntero.showResultado(resp)
- }
-
- function mostrarFibonacci(){
-    const numeroEntero = new Entero(5); // Por ejemplo, 5 elementos en la serie de Fibonacci
-// Llamando a la función para mostrar la serie de Fibonacci
-numeroEntero.mostrarFibonacci();
  }
