@@ -100,6 +100,19 @@ class Entero {
 
         return suma === this.Num;
     }
+    esPrimo() {
+        if (this.Num <= 1) {
+            return false; // Los números menores o iguales a 1 no son primos
+        }
+        
+        for (let i = 2; i <= Math.sqrt(this.Num); i++) {
+            if (this.Num % i === 0) {
+                return false; // Si se encuentra un divisor, no es primo
+            }
+        }
+        
+        return true; // Si no se encuentran divisores, es primo
+    }
 }
 
 
@@ -151,5 +164,11 @@ function mostrarNum(){
  function verificaAmstrong(){
     var respuesta = ClaseEntero.esArmstrong();
     var resp = respuesta ? "Es numero de amnstrong":"No es numero de amnstrong"
+    ClaseEntero.showResultado(resp)
+ }
+
+ function verificaPrimo(){ 
+    var respuesta = ClaseEntero.esPrimo(); 
+    var resp = respuesta ? "es primo": "no es primo"
     ClaseEntero.showResultado(resp)
  }

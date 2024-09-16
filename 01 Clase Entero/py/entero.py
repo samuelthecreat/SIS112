@@ -25,6 +25,14 @@ class Entero:
     def esParImpar(self):
         return (self.Num % 2 == 0)
 
+    def esPrimo(self):
+        if self.Num <= 1:
+            return False
+        for i in range(2, int(self.Num ** 0.5) + 1):
+            if self.Num % i == 0:
+                return False
+        return True
+    
     def menu(self):
         while True:
             print("\nMenú:")
@@ -33,8 +41,8 @@ class Entero:
             print("3. Incrementar el número")
             print("4. Decrementar el número")
             print("5. Verificar si es par o impar")
-            print("6. Salir")
-
+            print("6. Verificar si es primo")
+            print("7. Salir")
             opcion = input("Ingrese una opción: ")
 
             if opcion == '1':
@@ -51,10 +59,16 @@ class Entero:
                 else:
                     print("El número es impar.")
             elif opcion == '6':
+                if self.esPrimo():
+                    print("El número es primo.")
+                else:
+                    print("El número no es primo.")
+            elif opcion == '7':
                 print("¡Hasta luego!")
                 break
             else:
                 print("Opción inválida. Intente nuevamente.")
+
 
 
 
