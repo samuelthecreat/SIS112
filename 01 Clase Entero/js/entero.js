@@ -87,7 +87,33 @@ class Entero {
         // Verificar si la suma de los divisores es igual al número
         return suma === this.Num;
     }
+
+        // Método para verificar si es un número de Armstrong
+    esArmstrong() {
+        let numStr = this.Num.toString();
+        let numDigits = numStr.length;
+        let suma = 0;
+
+        for (let char of numStr) {
+            suma += Math.pow(parseInt(char), numDigits);
+        }
+
+        return suma === this.Num;
+    }
+    // Método para verificar si es un número de Armstrong
+    esArmstrong() {
+        let numStr = this.Num.toString();
+        let numDigits = numStr.length;
+        let suma = 0;
+
+        for (let char of numStr) {
+            suma += Math.pow(parseInt(char), numDigits);
+        }
+
+        return suma === this.Num;
+    }
 }
+
 
 //Las funciones = button HTML
 var ClaseEntero = new Entero(0); //Se inicializo en 0
@@ -131,5 +157,11 @@ function mostrarNum(){
  function verificarPerfecto(){
     var respuesta = ClaseEntero.esPerfecto();
     var resp = respuesta ? "Es perfecto": "No es perfecto"
+    ClaseEntero.showResultado(resp)
+ }
+
+ function verificaAmstrong(){
+    var respuesta = ClaseEntero.esArmstrong();
+    var resp = respuesta ? "Es numero de amnstrong":"No es numero de amnstrong"
     ClaseEntero.showResultado(resp)
  }
