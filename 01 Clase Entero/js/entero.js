@@ -55,6 +55,22 @@ class Entero {
     esPosiNega(){
         return (this.Num > 0)
     }
+
+    esFactorial() {
+        let num = this.Num;
+        if (num < 1) return false;  // Los números menores a 1 no son factoriales
+        
+        let i = 1;
+        while (num > 1) {
+            i++;
+            if (num % i !== 0) {
+                return false;
+            }
+            num /= i;
+        }
+        
+        return true;
+    }
 }
 
 //Las funciones = button HTML
@@ -87,5 +103,11 @@ function mostrarNum(){
  function esPosiNegaNum(){
     var respuesta = ClaseEntero.esPosiNega();
     var resp = respuesta ? "Es Num positivo":"Es num negativo";
+    ClaseEntero.showResultado(resp)
+ }
+
+ function verificaFactorial(){
+    var respuesta = ClaseEntero.esFactorial();
+    var resp = respuesta ? "Es factorial": "No es factorial"
     ClaseEntero.showResultado(resp)
  }
