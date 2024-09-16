@@ -38,6 +38,19 @@ class Entero:
             return False
         suma_divisores = sum(i for i in range(1, self.Num) if self.Num % i == 0)
         return suma_divisores == self.Num
+    def generarFibonacci(self):
+        if self.Num <= 0:
+            return []
+        elif self.Num == 1:
+            return [0]
+        elif self.Num == 2:
+            return [0, 1]
+
+        fibonacci = [0, 1]
+        for _ in range(2, self.Num):
+            siguiente = fibonacci[-1] + fibonacci[-2]
+            fibonacci.append(siguiente)
+        return fibonacci
 
     def menu(self):
         while True:
@@ -49,7 +62,8 @@ class Entero:
             print("5. Verificar si es par o impar")
             print("6. Verificar si es primo")
             print("7. Verificar si es perfecto")
-            print("8. Salir")
+            print("8. Generar la serie de Fibonacci")
+            print("9. Salir")
 
             opcion = input("Ingrese una opción: ")
 
@@ -77,10 +91,13 @@ class Entero:
                 else:
                     print("El número no es perfecto.")
             elif opcion == '8':
+                fibonacci_serie = self.generarFibonacci()
+                print(f"Serie de Fibonacci: {fibonacci_serie}")
+            elif opcion == '9':
                 print("¡Hasta luego!")
                 break
             else:
-                print("Opción inválida. Intente nuevamente.")    
+                print("Opción inválida. Intente nuevamente.")
 
 # Crear un objeto de la clase Entero
 numero = Entero(10)
