@@ -32,7 +32,12 @@ class Entero:
             if self.Num % i == 0:
                 return False
         return True
-    
+    def esPerfecto(self):
+        if self.Num <= 0:
+            return False
+        suma_divisores = sum(i for i in range(1, self.Num) if self.Num % i == 0)
+        return suma_divisores == self.Num
+
     def menu(self):
         while True:
             print("\nMenú:")
@@ -42,7 +47,9 @@ class Entero:
             print("4. Decrementar el número")
             print("5. Verificar si es par o impar")
             print("6. Verificar si es primo")
-            print("7. Salir")
+            print("7. Verificar si es perfecto")
+            print("8. Salir")
+
             opcion = input("Ingrese una opción: ")
 
             if opcion == '1':
@@ -64,10 +71,16 @@ class Entero:
                 else:
                     print("El número no es primo.")
             elif opcion == '7':
+                if self.esPerfecto():
+                    print("El número es perfecto.")
+                else:
+                    print("El número no es perfecto.")
+            elif opcion == '8':
                 print("¡Hasta luego!")
                 break
             else:
-                print("Opción inválida. Intente nuevamente.")
+                print("Opción inválida. Intente nuevamente.")    
+
 
 
 
