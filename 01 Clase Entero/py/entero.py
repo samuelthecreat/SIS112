@@ -81,12 +81,6 @@ class Entero:
             else:
                 print("Opción inválida. Intente nuevamente.")    
 
-
-
-
-
-
-
 # Crear un objeto de la clase Entero
 numero = Entero(10)
 
