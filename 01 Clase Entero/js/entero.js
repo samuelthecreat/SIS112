@@ -71,6 +71,22 @@ class Entero {
         
         return true;
     }
+
+    esPerfecto() {
+        if (this.Num <= 0) return false; // Los números perfectos son positivos
+        
+        let suma = 0;
+        
+        // Encontrar los divisores propios y sumarlos
+        for (let i = 1; i < this.Num; i++) {
+            if (this.Num % i === 0) {
+                suma += i;
+            }
+        }
+        
+        // Verificar si la suma de los divisores es igual al número
+        return suma === this.Num;
+    }
 }
 
 //Las funciones = button HTML
@@ -109,5 +125,11 @@ function mostrarNum(){
  function verificaFactorial(){
     var respuesta = ClaseEntero.esFactorial();
     var resp = respuesta ? "Es factorial": "No es factorial"
+    ClaseEntero.showResultado(resp)
+ }
+
+ function verificarPerfecto(){
+    var respuesta = ClaseEntero.esPerfecto();
+    var resp = respuesta ? "Es perfecto": "No es perfecto"
     ClaseEntero.showResultado(resp)
  }
