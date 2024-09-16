@@ -38,6 +38,7 @@ class Entero:
             return False
         suma_divisores = sum(i for i in range(1, self.Num) if self.Num % i == 0)
         return suma_divisores == self.Num
+    
     def generarFibonacci(self):
         if self.Num <= 0:
             return []
