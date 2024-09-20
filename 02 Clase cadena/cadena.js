@@ -1,104 +1,84 @@
-class Cadena{
-    constructor(cadena){
-        this.cadena = cadena; 
+class Cadena {
+    constructor(cadena) {
+      this.cadena = cadena;
     }
-
-    getCadena(){
-        return this.cadena; 
+    getCadena() { //Obtiene el valor asignado a la cadena
+      return this.cadena;
     }
-
-    cancatenar(otraCadena){
-        this.cadena += otraCadena;
+    // Manipulación de cadenas
+    concatenar(otraCadena) {  //Unir una cadena con otra
+      this.cadena += otraCadena;
     }
-
-    invertir(){
-        let cadenaInvertida = '';
-        for (let i = this.cadena.lenght -1; i >= 0; i--){
-            cadenaInvertida += this.cadena[i];
-        }
-        this.cadena = cadenaInvertida; 
+    invertir() { //Invertir los caracteres de la cadena
+      let cadenaInvertida = '';
+      for (let i = this.cadena.length - 1; i >= 0; i--) {
+        cadenaInvertida += this.cadena[i];
+      }
+      this.cadena = cadenaInvertida;
     }
-    
-    esVacia(){
-        return this.cadena.lenght === 0; 
+    // Comparaciones
+    esVacia() { //Compara si la cadena no tiene caracteres
+      return this.cadena.length === 0;
     }
-
-    contiene(subcadena){
-        return this.cadena.includes(subcadena);
+    contiene(subcadena) { //Compara si la subCadena existe dentro de la cadena
+      return this.cadena.includes(subcadena);
     }
-
-    comienzaCon(prefijo){
-        return this.cadena.startsWith(prefijo);
+    comienzaCon(prefijo) { //Compara si la cadena comienza con el prefijo "caracter"
+      return this.cadena.startsWith(prefijo);
     }
-
-    terminaCon(sufijo){
-        return this.cadena.endsWith(sufijo); 
+    terminaCon(sufijo) { //Compara si la cadena termina con el sufijo "caracter"
+      return this.cadena.endsWith(sufijo);
     }
-
-    longitud(){
-        return this.cadena.lenght;
+    // Otras operaciones
+    longitud() { //Obtiene la cantidad de caracteres que tiene la cadena
+      return this.cadena.length;
     }
-
-    aMayusculas(){
-        return this.cadena.toUpperCase();
+    aMayusculas() { //Obtiene la cadena transformada en MAYUSCULA
+      return this.cadena.toUpperCase();
     }
-
-    aMinusculas(){
-        return this.cadena.toLowerCase();
+    aMinusculas() { //Obtiene la cadena transformada en minuscula
+      return this.cadena.toLowerCase();
     }
-}
-
-let cadenaObj = new Cadena('');
-
-function mostrarCadena() {
-    document.getElementById('resultado').innerText = "Cadena: " + cadenaObj.getCadena();
-}
-
-function concatenarCadena() {
-    let nuevaCadena = prompt("Ingresa una cadena para concatenar:");
-    cadenaObj.cancatenar(nuevaCadena);
-    mostrarCadena();
-}
-
-function invertirCadena() {
-    cadenaObj.invertir();
-    mostrarCadena();
-}
-
-function verificarVacia() {
-    let esVacia = cadenaObj.esVacia() ? "Sí" : "No";
-    document.getElementById('resultado').innerText = "¿Es vacía?: " + esVacia;
-}
-
-function verificarContiene() {
-    let subcadena = prompt("Ingresa una subcadena para buscar:");
-    let contiene = cadenaObj.contiene(subcadena) ? "Sí" : "No";
-    document.getElementById('resultado').innerText = "Contiene '" + subcadena + "': " + contiene;
-}
-
-function comenzarCon() {
-    let prefijo = prompt("Ingresa un prefijo:");
-    let comienza = cadenaObj.comienzaCon(prefijo) ? "Sí" : "No";
-    document.getElementById('resultado').innerText = "Comienza con '" + prefijo + "': " + comienza;
-}
-
-function terminarCon() {
-    let sufijo = prompt("Ingresa un sufijo:");
-    let termina = cadenaObj.terminaCon(sufijo) ? "Sí" : "No";
-    document.getElementById('resultado').innerText = "Termina con '" + sufijo + "': " + termina;
-}
-
-function obtenerLongitud() {
-    let longitud = cadenaObj.longitud();
-    document.getElementById('resultado').innerText = "Longitud: " + longitud;
-}
-
-function convertirMayusculas() {
-    let mayusculas = cadenaObj.aMayusculas();
-    document.getElementById('resultado').innerText = "En mayúsculas: " + mayusculas;
-}
-
-function convertirMinusculas() {
-    let minusculas = cadenaObj.aMinusculas();
-    document.getElementById('resultado').innerText = "En minúsculas: " + minusculas;
-}
+  }
+  let cadena = new Cadena('');
+  function ejecutar(metodo) {
+    const input = document.getElementById('inputCadena');
+    const resultadoDiv = document.getElementById('resultado');
+    const valorInput = input.value;
+    switch (metodo) {
+      case 'getCadena':
+        resultadoDiv.innerHTML = `Cadena: ${cadena.getCadena()}`;
+        break;
+      case 'concatenar':
+        cadena.concatenar(valorInput);
+        resultadoDiv.innerHTML = `Cadena actual: ${cadena.getCadena()}`;
+        break;
+      case 'invertir':
+        cadena.invertir();
+        resultadoDiv.innerHTML = `Cadena invertida: ${cadena.getCadena()}`;
+        break;
+      case 'esVacia':
+        resultadoDiv.innerHTML = `¿Es vacía?: ${cadena.esVacia()}`;
+        break;
+      case 'contiene':
+        resultadoDiv.innerHTML = `¿Contiene '${valorInput}'?: ${cadena.contiene(valorInput)}`;
+        break;
+      case 'comienzaCon':
+        resultadoDiv.innerHTML = `¿Comienza con '${valorInput}'?: ${cadena.comienzaCon(valorInput)}`;
+        break;
+      case 'terminaCon':
+        resultadoDiv.innerHTML = `¿Termina con '${valorInput}'?: ${cadena.terminaCon(valorInput)}`;
+        break;
+      case 'longitud':
+        resultadoDiv.innerHTML = `Longitud: ${cadena.longitud()}`;
+        break;
+      case 'aMayusculas':
+        resultadoDiv.innerHTML = `A mayúsculas: ${cadena.aMayusculas()}`;
+        break;
+      case 'aMinusculas':
+        resultadoDiv.innerHTML = `A minúsculas: ${cadena.aMinusculas()}`;
+        break;
+      default:
+        resultadoDiv.innerHTML = 'Método no reconocido.';
+    }
+  }
