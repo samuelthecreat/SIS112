@@ -40,6 +40,7 @@ class Cadena {
       return this.cadena.toLowerCase();
     }
   }
+  
   let cadena = new Cadena('');
   function ejecutar(metodo) {
     const input = document.getElementById('inputCadena');
