@@ -40,7 +40,11 @@ class Cadena{
     }
 
     aMayusculas(){
+        return this.cadena.toUpperCase();
+    }
 
+    aMinusculas(){
+        return this.cadena.toLowerCase();
     }
 
 }
