@@ -46,5 +46,4 @@ class Cadena{
     aMinusculas(){
         return this.cadena.toLowerCase();
     }
-
 }
