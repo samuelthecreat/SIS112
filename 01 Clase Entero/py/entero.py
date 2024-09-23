@@ -53,6 +53,65 @@ class Entero:
             fibonacci.append(siguiente)
         return fibonacci
 
+    def esArmstrong(self):
+        n = len(str(self.Num))
+        suma = sum(int(d)**n for d in str(self.Num))
+        return self.Num == suma
+
+    def esPerfectoGeneralizado(self, k):
+        suma_divisores = sum(i**k for i in range(1, self.Num) if self.Num % i == 0)
+        return suma_divisores == self.Num
+
+    def calcularFilaPascal(self):
+        fila = [1]
+        for i in range(1, self.Num+1):
+            fila.append(fila[-1] * (self.Num - i + 1) // i)
+        return fila
+
+    def cifrarCesar(self, desplazamiento):
+        resultado = ""
+        for char in str(self.Num):
+            if char.isdigit():
+                nuevo_char = chr((ord(char) - ord('0') + desplazamiento) % 10 + ord('0'))
+                resultado += nuevo_char
+        return resultado
+
+    def tienePrimoGemelo(self):
+        if not self.esPrimo():
+            return False
+        return Entero(self.Num + 2).esPrimo() or Entero(self.Num - 2).esPrimo()
+
+    def descomponerEnFactoresPrimos(self):
+        n = self.Num
+        factores = {}
+        divisor = 2
+        while n > 1:
+            while n % divisor == 0:
+                if divisor in factores:
+                    factores[divisor] += 1
+                else:
+                    factores[divisor] = 1
+                n //= divisor
+            divisor += 1
+        return factores
+
+    def calcularCatalan(self):
+        catalan = 1
+        for i in range(1, self.Num + 1):
+            catalan = catalan * (2 * i * (2 * i - 1)) // ((i + 1) * i)
+        return catalan
+
+    def esMersenne(self):
+        if not self.esPrimo():
+            return False
+        potencia = 1
+        while (2 ** potencia - 1) <= self.Num:
+            if (2 ** potencia - 1) == self.Num:
+                return True
+            potencia += 1
+        return False
+
+    # Actualización del menú para incluir las nuevas funcionalidades
     def menu(self):
         while True:
             print("\nMenú:")
@@ -64,7 +123,15 @@ class Entero:
             print("6. Verificar si es primo")
             print("7. Verificar si es perfecto")
             print("8. Generar la serie de Fibonacci")
-            print("9. Salir")
+            print("9. Verificar si es un número de Armstrong")
+            print("10. Verificar si es un número perfecto generalizado")
+            print("11. Calcular fila del triángulo de Pascal")
+            print("12. Cifrar número usando cifrado César")
+            print("13. Verificar si tiene un primo gemelo")
+            print("14. Descomponer en factores primos")
+            print("15. Calcular número de Catalan")
+            print("16. Verificar si es un número de Mersenne")
+            print("17. Salir")
 
             opcion = input("Ingrese una opción: ")
 
@@ -95,6 +162,39 @@ class Entero:
                 fibonacci_serie = self.generarFibonacci()
                 print(f"Serie de Fibonacci: {fibonacci_serie}")
             elif opcion == '9':
+                if self.esArmstrong():
+                    print("El número es un número de Armstrong.")
+                else:
+                    print("El número no es un número de Armstrong.")
+            elif opcion == '10':
+                k = int(input("Ingrese el valor de k: "))
+                if self.esPerfectoGeneralizado(k):
+                    print(f"El número es perfecto generalizado con respecto a {k}.")
+                else:
+                    print(f"El número no es perfecto generalizado con respecto a {k}.")
+            elif opcion == '11':
+                fila_pascal = self.calcularFilaPascal()
+                print(f"Fila {self.Num} del triángulo de Pascal: {fila_pascal}")
+            elif opcion == '12':
+                desplazamiento = int(input("Ingrese el desplazamiento para el cifrado César: "))
+                print(f"Número cifrado: {self.cifrarCesar(desplazamiento)}")
+            elif opcion == '13':
+                if self.tienePrimoGemelo():
+                    print("El número tiene un primo gemelo.")
+                else:
+                    print("El número no tiene un primo gemelo.")
+            elif opcion == '14':
+                factores_primos = self.descomponerEnFactoresPrimos()
+                print(f"Factores primos: {factores_primos}")
+            elif opcion == '15':
+                catalan = self.calcularCatalan()
+                print(f"Número de Catalan: {catalan}")
+            elif opcion == '16':
+                if self.esMersenne():
+                    print("El número es un número de Mersenne.")
+                else:
+                    print("El número no es un número de Mersenne.")
+            elif opcion == '17':
                 print("¡Hasta luego!")
                 break
             else:
