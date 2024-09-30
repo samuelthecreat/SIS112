@@ -28,7 +28,7 @@
             position: absolute;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
             z-index: -1;
         }
 
@@ -51,6 +51,7 @@
             color: #ff6f61;
             text-transform: uppercase;
             letter-spacing: 3px;
+            animation: scaleUp 1.5s ease-out forwards;
         }
 
         p {
@@ -87,6 +88,16 @@
             transition: all 0.5s ease-in-out;
         }
 
+        .btn:hover {
+            background-color: #ff6f61;
+            color: #fff;
+            box-shadow: 0 10px 20px rgba(255, 111, 97, 0.5);
+        }
+
+        .btn:hover:before {
+            transform: scale(1);
+        }
+
         .btn:before {
             content: '';
             position: absolute;
@@ -100,20 +111,15 @@
             opacity: 0.5;
         }
 
-        .btn:hover:before {
-            transform: scale(1);
-        }
-
-        .btn:hover {
-            background-color: #ff6f61;
-            color: #fff;
-            box-shadow: 0 10px 20px rgba(255, 111, 97, 0.5);
-        }
-
         @keyframes float {
             0% { transform: translateY(0) rotateX(15deg); }
             50% { transform: translateY(-10px) rotateX(15deg); }
             100% { transform: translateY(0) rotateX(15deg); }
+        }
+
+        @keyframes scaleUp {
+            0% { transform: scale(0.8); }
+            100% { transform: scale(1); }
         }
 
         /* Media Queries */
@@ -135,7 +141,7 @@
 
     <div class="container">
         <h1>Bienvenido</h1>
-
+        
         <!-- Sección de datos personales -->
         <div class="info">
             <p><strong>Nombre:</strong> Samuel Aguilera</p>
@@ -152,6 +158,9 @@
         </a>
         <a href="http://aguilera.somee.com/lista-enteros.html">
             <button class="btn">Lista de Enteros</button>
+        </a>
+        <a href="http://aguilera.somee.com/lista-cadenas.html"></a>
+            <button class="btn">Lista de cadenas</button>
         </a>
     </div>
 
