@@ -44,7 +44,7 @@ var d = miLista.lista[3];
 console.log(d); 
 
 var datoMenor = -1;
-
+/*
 var a = miLista.lista[0];
 if(a > datoMenor){
     datoMenor = a;
@@ -68,8 +68,15 @@ if(c > d){
     datoMenor = d;
 }
 console.log("Dato Menor: " + datoMenor);
+*/
+var datoMenor = miLista.lista[0]; // Asumimos que el primer elemento es el menor inicialmente
 
-
+for (let i = 1; i < miLista.lista.length; i++) {
+    if (miLista.lista[i] < datoMenor) {
+        datoMenor = miLista.lista[i];
+    }
+    console.log("Dato Menor: " + datoMenor);
+}
 // Función para agregar enteros a la lista y mostrarla
 function agregarEntero(valor) {
     if (!isNaN(valor)) {
