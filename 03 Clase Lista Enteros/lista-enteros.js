@@ -22,7 +22,10 @@ class listaEnteros {
 
 // Crear una instancia de listaEnteros
 let miLista = new listaEnteros();
-
+miLista.agregar(21);
+miLista.agregar(12);
+miLista.agregar(15);
+miLista.agregar(30);
 // Función para agregar enteros a la lista y mostrarla
 function agregarEntero() {
     const valor = document.getElementById('valor').value;
