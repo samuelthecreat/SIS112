@@ -1,109 +1,130 @@
-class listaEnteros {
+class ListaCadenas {
     constructor() {
         this.lista = [];
     }
 
     agregar(valor) {
-        this.lista.push(parseInt(valor)); // Convertir a número entero
+        this.lista.push(valor);
+        this.mostrarLista();
     }
 
     eliminar(valor) {
-        const index = this.lista.indexOf(parseInt(valor)); // Convertir a número entero
+        const index = this.lista.indexOf(valor);
         if (index !== -1) {
             this.lista.splice(index, 1);
         }
+        this.mostrarLista();
     }
 
     buscar(valor) {
-        return this.lista.indexOf(parseInt(valor)); // Convertir a número entero
+        return this.lista.indexOf(valor);
     }
 
     ordenar() {
-        this.lista.sort((a, b) => a - b);
+        this.lista.sort((a, b) => a - b); // Orden ascendente
+        this.mostrarLista();
+    }
+
+    mostrarLista() {
+        const listaElement = document.getElementById('listaCadenas');
+        listaElement.innerHTML = '';
+        this.lista.forEach(cadena => {
+            const li = document.createElement('li');
+            li.textContent = cadena;
+            listaElement.appendChild(li);
+        });
     }
 }
-
-// Crear una instancia de listaEnteros
-let miLista = new listaEnteros();
-miLista.agregar(21);
-miLista.agregar(12);
-miLista.agregar(15);
-miLista.agregar(30);
-
-// Mostrar el tercer elemento en la lista
-var a = miLista.lista[0];
-console.log(a); 
-
-var b = miLista.lista[1];
-console.log(b); 
-
-var c = miLista.lista[2];
-console.log(c); 
-
-var d = miLista.lista[3];
-console.log(d); 
-
-var datoMenor = -1;
 /*
-var a = miLista.lista[0];
-if(a > datoMenor){
-    datoMenor = a;
-}
-console.log("Dato Menor: " + datoMenor);
+const listaCadenas = new ListaCadenas();
+listaCadenas.agregar('Hola');
+listaCadenas.agregar('Mundo');
+listaCadenas.agregar('UCB');
 
-var b = miLista.lista[1];
-if(a > b){
-    datoMenor = b;
-}
-console.log("Dato Menor: " + datoMenor);
+//Retornar la cadena con mayor caracteres
 
-var c = miLista.lista[2];
-if(b > c){
-    datoMenor = c;
+//var = let
+//------------------------------------Hola
+var a = listaCadenas.lista[0]
+console.log(a);
+var aCant = a.length;
+console.log(aCant);
+//------------------------------------Mundo
+var b = listaCadenas.lista[1]
+console.log(b);
+var bCant = b.length
+console.log(bCant);
+//------------------------------------UCB
+var c = listaCadenas.lista[2]
+console.log(c);
+var cCant = c.length
+console.log(cCant);
+///----------------------------------busca el mayor
+var mayor = 0;
+var posicion = -1;
+if (aCant > mayor){
+    mayor = aCant;
+    posicion = 0;
 }
-console.log("Dato Menor: " + datoMenor);
+if (bCant > mayor){
+    mayor = bCant;
+    posicion = 1;
+}
+if (cCant > mayor){
+    mayor = cCant;
+    posicion = 2;
+}
 
-var d = miLista.lista[3];
-if(c > d){
-    datoMenor = d;
-}
-console.log("Dato Menor: " + datoMenor);
+console.log ("la mayor cantidad de caracteres tiene: " + mayor); 
+console.log ("la cadena con mayor cantidad de caracteres : " + listaCadenas.lista[posicion]); 
+
+console.log(listaCadenas.lista); // Imprime: ['Hola', 'Mundo', 'UCB']
 */
-var datoMenor = miLista.lista[0]; // Asumimos que el primer elemento es el menor inicialmente
+// Supongamos que listaCadenas.lista es un array de cadenas
+var listaCadenas = {
+    lista: ["Hola", "Mundo", "UCB SCZ INDUSTRIAL"]
+};
 
-for (let i = 1; i < miLista.lista.length; i++) {
-    if (miLista.lista[i] < datoMenor) {
-        datoMenor = miLista.lista[i];
-    }
-    console.log("Dato Menor: " + datoMenor);
-}
-// Función para agregar enteros a la lista y mostrarla
-function agregarEntero(valor) {
-    if (!isNaN(valor)) {
-        miLista.agregar(valor);
-        console.log('Lista actualizada:', miLista.lista);
-    } else {
-        console.log('Por favor, ingrese un número válido.');
-    }
-}
+// Variable para almacenar el mayor y su posición
+var mayor = 0;
+var posicion = -1;
 
-// Función para buscar un entero en la lista
-function buscarEntero(valor) {
-    const index = miLista.buscar(valor);
+// Recorremos cada cadena en listaCadenas.lista
+listaCadenas.lista.forEach((cadena, i) => {
+    console.log(Cadena: ${cadena}, Longitud: ${cadena.length});
+    if (cadena.length > mayor) [mayor, posicion] = [cadena.length, i];
+});
+// Mostramos el resultado final
+console.log("La cadena más larga es: " +  listaCadenas.lista[posicion] +  "; con una longitud de:", mayor);
+
+
+
+document.getElementById('btnAgregar').onclick = () => {
+    const valor = document.getElementById('inputValor').value.trim();
+    if (valor) {
+        listaCadenas.agregar(valor);
+        document.getElementById('inputValor').value = '';
+    }
+};
+
+document.getElementById('btnEliminar').onclick = () => {
+    const valor = document.getElementById('inputEliminar').value.trim();
+    if (valor) {
+        listaCadenas.eliminar(valor);
+        document.getElementById('inputEliminar').value = '';
+    }
+};
+
+document.getElementById('btnBuscar').onclick = () => {
+    const valor = document.getElementById('inputBuscar').value.trim();
+    const index = listaCadenas.buscar(valor);
     if (index !== -1) {
-        console.log(valor + ' se encuentra en la posición: ' + index);
+        alert(Cadena encontrada en el índice: ${index});
     } else {
-        console.log(valor + ' no se encuentra en la lista.');
+        alert('Cadena no encontrada.');
     }
-}
+};
 
-// Función para ordenar la lista
-function ordenarLista() {
-    miLista.ordenar();
-    console.log('Lista ordenada:', miLista.lista);
-}
-
-// Ejemplo de uso en la consola
-agregarEntero(45); // Agregar un número
-buscarEntero(12);  // Buscar un número
-ordenarLista();    // Ordenar la lista
+document.getElementById('btnOrdenar').onclick = () => {
+    listaCadenas.ordenar();
+};
