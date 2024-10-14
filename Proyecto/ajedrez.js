@@ -1,7 +1,13 @@
 const chessboard = document.getElementById('chessboard');
+const turnDisplay = document.querySelector('.turn');
+const timerDisplay = document.getElementById('timer');
 let selectedPiece = null;
 let turn = 'white'; // El turno comienza con las blancas
 let check = false;
+
+let whiteTime = 600; // 10 minutos en segundos
+let blackTime = 600;
+let timerInterval;
 
 // Tablero inicial
 let board = [
@@ -20,79 +26,35 @@ const pieceSymbols = {
     'R': '♖', 'N': '♘', 'B': '♗', 'Q': '♕', 'K': '♔', 'P': '♙'
 };
 
-// Movimientos de la torre
-function isValidRookMove(fromRow, fromCol, toRow, toCol) {
-    if (fromRow === toRow || fromCol === toCol) {
-        return isPathClear(fromRow, fromCol, toRow, toCol);
-    }
-    return false;
-}
-
-// Movimientos del alfil
-function isValidBishopMove(fromRow, fromCol, toRow, toCol) {
-    if (Math.abs(fromRow - toRow) === Math.abs(fromCol - toCol)) {
-        return isPathClear(fromRow, fromCol, toRow, toCol);
-    }
-    return false;
-}
-
-// Movimientos de la reina (combinación de torre y alfil)
-function isValidQueenMove(fromRow, fromCol, toRow, toCol) {
-    return isValidRookMove(fromRow, fromCol, toRow, toCol) ||
-           isValidBishopMove(fromRow, fromCol, toRow, toCol);
-}
-
-// Movimientos del rey (1 casilla en cualquier dirección)
-function isValidKingMove(fromRow, fromCol, toRow, toCol) {
-    return Math.abs(fromRow - toRow) <= 1 && Math.abs(fromCol - toCol) <= 1;
-}
-
-// Movimientos del caballo (en "L")
-function isValidKnightMove(fromRow, fromCol, toRow, toCol) {
-    const rowDiff = Math.abs(fromRow - toRow);
-    const colDiff = Math.abs(fromCol - toCol);
-    return (rowDiff === 2 && colDiff === 1) || (rowDiff === 1 && colDiff === 2);
-}
-
-// Movimientos del peón (diferente para blancas y negras)
-function isValidPawnMove(fromRow, fromCol, toRow, toCol, piece) {
-    const direction = piece === 'P' ? -1 : 1;
-    const startRow = piece === 'P' ? 6 : 1;
-    
-    // Movimiento hacia adelante (sin captura)
-    if (fromCol === toCol) {
-        if (toRow === fromRow + direction && !board[toRow][toCol]) {
-            return true;
+// Iniciar el temporizador
+function startTimer() {
+    clearInterval(timerInterval);
+    timerInterval = setInterval(() => {
+        if (turn === 'white') {
+            whiteTime--;
+            if (whiteTime <= 0) {
+                alert("¡El tiempo de las Blancas se ha agotado! Ganan las Negras.");
+                clearInterval(timerInterval);
+                resetBoard();
+            }
+        } else {
+            blackTime--;
+            if (blackTime <= 0) {
+                alert("¡El tiempo de las Negras se ha agotado! Ganan las Blancas.");
+                clearInterval(timerInterval);
+                resetBoard();
+            }
         }
-        if (fromRow === startRow && toRow === fromRow + 2 * direction && !board[toRow][toCol] && !board[fromRow + direction][toCol]) {
-            return true;
-        }
-    }
-    // Captura en diagonal
-    if (Math.abs(fromCol - toCol) === 1 && toRow === fromRow + direction && board[toRow][toCol]) {
-        return true;
-    }
-
-    return false;
+        updateTimerDisplay();
+    }, 1000);
 }
 
-// Verificar si el camino está libre de piezas
-function isPathClear(fromRow, fromCol, toRow, toCol) {
-    const rowStep = Math.sign(toRow - fromRow);
-    const colStep = Math.sign(toCol - fromCol);
-
-    let currentRow = fromRow + rowStep;
-    let currentCol = fromCol + colStep;
-
-    while (currentRow !== toRow || currentCol !== toCol) {
-        if (board[currentRow][currentCol]) {
-            return false;
-        }
-        currentRow += rowStep;
-        currentCol += colStep;
-    }
-
-    return true;
+// Actualizar el temporizador en pantalla
+function updateTimerDisplay() {
+    const time = turn === 'white' ? whiteTime : blackTime;
+    const minutes = Math.floor(time / 60).toString().padStart(2, '0');
+    const seconds = (time % 60).toString().padStart(2, '0');
+    timerDisplay.textContent = `${minutes}:${seconds}`;
 }
 
 // Mover la pieza seleccionada
@@ -105,38 +67,17 @@ function movePiece(targetRow, targetCol) {
 
         // Alternar turno
         turn = turn === 'white' ? 'black' : 'white';
+        turnDisplay.textContent = `Turno: ${turn === 'white' ? 'Blancas' : 'Negras'}`;
+        turnDisplay.style.backgroundColor = turn === 'white' ? '#ffca28' : '#1e88e5';
 
         // Reiniciar la pieza seleccionada
         selectedPiece = null;
 
+        // Actualizar el temporizador
+        startTimer();
+
         // Actualizar el tablero visual
         createBoard();
-    }
-}
-
-// Determinar si el movimiento es válido según la pieza
-function isValidMove(fromRow, fromCol, toRow, toCol) {
-    const piece = board[fromRow][fromCol];
-    const targetPiece = board[toRow][toCol];
-
-    if (!piece || (turn === 'white' && piece === piece.toLowerCase()) || (turn === 'black' && piece === piece.toUpperCase())) {
-        return false;
-    }
-
-    if (targetPiece && ((turn === 'white' && targetPiece === targetPiece.toUpperCase()) || (turn === 'black' && targetPiece === targetPiece.toLowerCase()))) {
-        return false; // No puede capturar sus propias piezas
-    }
-
-    const pieceType = piece.toLowerCase();
-
-    switch (pieceType) {
-        case 'p': return isValidPawnMove(fromRow, fromCol, toRow, toCol, piece);
-        case 'r': return isValidRookMove(fromRow, fromCol, toRow, toCol);
-        case 'n': return isValidKnightMove(fromRow, fromCol, toRow, toCol);
-        case 'b': return isValidBishopMove(fromRow, fromCol, toRow, toCol);
-        case 'q': return isValidQueenMove(fromRow, fromCol, toRow, toCol);
-        case 'k': return isValidKingMove(fromRow, fromCol, toRow, toCol);
-        default: return false;
     }
 }
 
@@ -176,5 +117,25 @@ function handleCellClick(row, col) {
     }
 }
 
-// Inicializar el juego
+// Reiniciar el tablero y el tiempo
+function resetBoard() {
+    board = [
+        ['r', 'n', 'b', 'q', 'k', 'b', 'n', 'r'],
+        ['p', 'p', 'p', 'p', 'p', 'p', 'p', 'p'],
+        ['', '', '', '', '', '', '', ''],
+        ['', '', '', '', '', '', '', ''],
+        ['', '', '', '', '', '', '', ''],
+        ['', '', '', '', '', '', '', ''],
+        ['P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'],
+        ['R', 'N', 'B', 'Q', 'K', 'B', 'N', 'R']
+    ];
+    turn = 'white';
+    whiteTime = 600;
+    blackTime = 600;
+    startTimer();
+    createBoard();
+}
+
+// Iniciar el juego
 createBoard();
+startTimer();
