@@ -17,7 +17,7 @@ html, body {
     
     #gameCanvas {
      display: block;
-     border: 5px solid #61dafb;
+     border: 5px solid #2131be;
      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
      background-color: #282c34;
      border-radius: 10px;

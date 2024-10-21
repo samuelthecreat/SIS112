@@ -1,5 +1,5 @@
 const canvas = document.getElementById ("gameCanvas"); 
-const ctx = canvas.getContetx("2d"); 
+const ctx = canvas.getContext('2d'); 
 
 function resizeCanvas(){
     canvas.width = window.innerWidth * 0.9; 
@@ -9,4 +9,4 @@ function resizeCanvas(){
 
 resizeCanvas(); 
 
-window.addEventListener("resize", resizeCanvas);
+window.addEventListener('resize', resizeCanvas);
