@@ -34,16 +34,29 @@ ctx.fillStyle = 'red';
 ctx.fillRect(enemyTank.posX, enemyTank.posY, 50, 50);
 }
 
-// Lógica del juego (actualización de la pantalla)
-function updateGame() {
-ctx.clearRect(0, 0, canvas.width, canvas.height);
+window.addEventListener('keydown' , function(e) {
+    switch (e.key){
+        case 'Arrowleft': 
+            playerTank.moveLeft(); 
+            break;
+        case 'Arrowright': 
+            playerTank.moveRight();
+            break;
+        case 'Arrowup': 
+            playerTank.moveUp(); 
+            break;
+        case 'Arrowdown': 
+            playerTank.moveDown(); 
+            break;
+    }
+});
 
-drawTank(playerTank); // Dibujamos el tanque del jugador
-drawEnemyTank(enemyTank); // Dibujamos el tanque enemigo
-
-// Refrescar los graficos
-requestAnimationFrame(updateGame);
+function updateGame(){
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    drawTank(playerTank);
+    drawEnemyTank(enemyTank);
+    requestAnimationFrame(updateGame);
 }
 
-// Iniciar el juego
 updateGame(); 
+
