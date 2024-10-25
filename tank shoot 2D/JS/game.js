@@ -5,7 +5,7 @@ class Game{
 
     constructor (_ancho, _alto, _estadoJuego){
         this.ancho = _ancho; 
-        this.alto = _ancho; 
+        this.alto = _alto; 
         this.estadoJuego = _estadoJuego;
     }
 

@@ -6,6 +6,12 @@ const ctx = canvas.getContext('2d');
 function resizeCanvas() {
 canvas.width = window.innerWidth * 0.9;
 canvas.height = window.innerHeight * 0.9;
+
+canvas.width = Math.round(canvas.width/50) * 50; 
+canvas.height = Math.round(canvas.height/50) * 50;
+
+console.log ('width', canvas.width);
+console.log ('height', canvas.height);
 }
 
 // Llamamos a la función al cargar la página
@@ -18,8 +24,8 @@ window.addEventListener('resize', resizeCanvas);
 const game = new Game(canvas.width, canvas.height, "start");
 
 // Creamos un tanque de jugador y un tanque enemigo
-const playerTank = new tank(600, 300, 'up', 3);
-const enemyTank = new Enemytank(500, 500, 'down', 3);
+const playerTank = new tank(600, 300, 'up', 3, game.ancho, game.alto);
+const enemyTank = new Enemytank(500, 500, 'down', 3, game.ancho, game.alto);
 
 // Dibujamos los elementos en el canvas
 function drawTank(tank) {
@@ -36,20 +42,47 @@ ctx.fillRect(enemyTank.posX, enemyTank.posY, 50, 50);
 
 window.addEventListener('keydown' , function(e) {
     switch (e.key){
-        case 'Arrowleft': 
-            playerTank.moveLeft(); 
+        case 'ArrowLeft': 
+            playerTank.moveLeft();
             break;
-        case 'Arrowright': 
+        case 'ArrowRight': 
             playerTank.moveRight();
             break;
-        case 'Arrowup': 
-            playerTank.moveUp(); 
+        case 'ArrowUp': 
+            playerTank.moveUp();
             break;
-        case 'Arrowdown': 
-            playerTank.moveDown(); 
+        case 'ArrowDown': 
+            playerTank.moveDown();
             break;
     }
 });
+
+
+function moveEnemyTankRandomly(enemyTank){
+    const directions = ['left', 'right', 'up', 'down']; 
+    const randomDirection = directions[Math.floor(Math.random()* directions.length)];
+
+    console.log (randomDirection)
+    switch (randomDirection){
+        case 'left': 
+            enemyTank.moveLeft();
+            break;
+        case 'right': 
+            enemyTank.moveRight();
+            break;
+        case 'up': 
+            enemyTank.moveUp();
+            break;
+        case 'down': 
+            enemyTank.moveDown();
+            break;
+    }
+}
+
+setInterval(() => {
+    moveEnemyTankRandomly(enemyTank);
+}, 500)
+
 
 function updateGame(){
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -58,5 +91,5 @@ function updateGame(){
     requestAnimationFrame(updateGame);
 }
 
-updateGame(); 
+updateGame();
 
