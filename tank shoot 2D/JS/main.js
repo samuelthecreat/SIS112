@@ -1,39 +1,49 @@
-const canvas = document.getElementById ("gameCanvas"); 
-const ctx = canvas.getContext('2d'); 
+// Seleccionamos el canvas y el contexto
+const canvas = document.getElementById('gameCanvas');
+const ctx = canvas.getContext('2d');
 
-function resizeCanvas(){
-    canvas.width = window.innerWidth * 0.9; 
-    canvas.height = window.innerHeight * 0.9; 
-
+// Función para ajustar el tamaño del canvas a la ventana
+function resizeCanvas() {
+canvas.width = window.innerWidth * 0.9;
+canvas.height = window.innerHeight * 0.9;
 }
 
-resizeCanvas(); 
+// Llamamos a la función al cargar la página
+resizeCanvas();
 
+// Ajustamos el canvas cuando la ventana cambie de tamaño
 window.addEventListener('resize', resizeCanvas);
 
-const game = new Game (canvas.width, canvas.height,'start'); 
+// Creamos un objeto de juego
+const game = new Game(canvas.width, canvas.height, "start");
 
-const playerTank = new tank (100, 100, 'up', 3); 
-const enemyTank = new Enemytank (500, 100, 'down', 3);
+// Creamos un tanque de jugador y un tanque enemigo
+const playerTank = new tank(600, 300, 'up', 3);
+const enemyTank = new Enemytank(500, 500, 'down', 3);
 
-function drawTank (tank) {
-    ctx.fillstyle = 'green'; 
-    ctx.fillRect(tank.posX, tank.posY, 50, 50); 
+// Dibujamos los elementos en el canvas
+function drawTank(tank) {
+ctx.fillStyle = 'green';
+// Representamos el tanque como un cuadrado
+ctx.fillRect(tank.posX, tank.posY, 50, 50);
 }
 
-function drawEnemyTank (enemyTank){
-    ctx.fillstyle = 'red'; 
-    ctx.fillRect (enemyTank.posX, enemyTank.posY, 50,50);
+function drawEnemyTank(enemyTank) {
+ctx.fillStyle = 'red';
+// Representamos el tanque enemigo como un cuadrado
+ctx.fillRect(enemyTank.posX, enemyTank.posY, 50, 50);
 }
 
-function updateGame(){
-    ctx.clearRect(0,0, canvas.width, canvas.height); 
+// Lógica del juego (actualización de la pantalla)
+function updateGame() {
+ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    drawTank(playerTank); 
-    drawEnemyTank (enemyTank); 
+drawTank(playerTank); // Dibujamos el tanque del jugador
+drawEnemyTank(enemyTank); // Dibujamos el tanque enemigo
 
-    requestAnimationFrame(updateGame); 
-
+// Refrescar los graficos
+requestAnimationFrame(updateGame);
 }
 
+// Iniciar el juego
 updateGame(); 
