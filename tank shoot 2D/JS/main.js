@@ -25,7 +25,9 @@ const game = new Game(canvas.width, canvas.height, "start");
 
 // Creamos un tanque de jugador y un tanque enemigo
 const playerTank = new tank(600, 300, 'up', 3, game.ancho, game.alto);
-const enemyTank = new Enemytank(500, 500, 'down', 3, game.ancho, game.alto);
+const enemyTank1 = new Enemytank(500, 500, 'down', 3, game.ancho, game.alto);
+const enemyTank2 = new Enemytank(700, 600, 'down', 3, game.ancho, game.alto);
+const enemyTank3 = new Enemytank(400, 700, 'down', 3, game.ancho, game.alto);
 
 // Dibujamos los elementos en el canvas
 function drawTank(tank) {
@@ -80,14 +82,18 @@ function moveEnemyTankRandomly(enemyTank){
 }
 
 setInterval(() => {
-    moveEnemyTankRandomly(enemyTank);
+    moveEnemyTankRandomly(enemyTank1);
+    moveEnemyTankRandomly(enemyTank2);
+    moveEnemyTankRandomly(enemyTank3);
 }, 500)
 
 
 function updateGame(){
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     drawTank(playerTank);
-    drawEnemyTank(enemyTank);
+    drawEnemyTank(enemyTank1);
+    drawEnemyTank(enemyTank2);
+    drawEnemyTank(enemyTank3);
     requestAnimationFrame(updateGame);
 }
 
