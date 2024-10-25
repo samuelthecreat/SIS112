@@ -4,6 +4,8 @@ class tank{
     direccionDisparo; 
     vidas; 
     velocidad;
+    anchoMapa; 
+    altoMapa;
 
     constructor( _posX, _posY, _direccionDisparo, _vidas){
         this.posX = _posX; 
@@ -11,6 +13,8 @@ class tank{
         this.direccionDisparo = _direccionDisparo;
         this.vidas = _vidas; 
         this.velocidad = 50;
+        this.anchoMapa 
+        this.altoMapa 
     }
 
     moveLeft(){
