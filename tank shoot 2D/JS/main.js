@@ -32,17 +32,8 @@ const enemyTank2 = new Enemytank(700, 600, 'down', 3, game.ancho, game.alto);
 const enemyTank3 = new Enemytank(400, 700, 'down', 3, game.ancho, game.alto);
 
 // Dibujamos los elementos en el canvas
-function drawTank(tank) {
-ctx.fillStyle = 'green';
-// Representamos el tanque como un cuadrado
-ctx.fillRect(tank.posX, tank.posY, 50, 50);
-}
 
-function drawEnemyTank(enemyTank) {
-ctx.fillStyle = 'red';
-// Representamos el tanque enemigo como un cuadrado
-ctx.fillRect(enemyTank.posX, enemyTank.posY, 50, 50);
-}
+
 
 window.addEventListener('keydown' , function(e) {
     switch (e.key){
@@ -87,15 +78,58 @@ setInterval(() => {
     moveEnemyTankRandomly(enemyTank1);
     moveEnemyTankRandomly(enemyTank2);
     moveEnemyTankRandomly(enemyTank3);
-}, 1500)
+}, 1000)
 
+const escenario = [
+    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+];
+
+function drawEscenario (ctx, escenario){ 
+    for (let row = 0; row < escenario.length; row++){
+        for (let col = 0; col < escenario[row].length; col++){
+            const cell = escenario [row][col];
+            const x = col * game.anchoCelda;
+            const y = row * game.altoCelda;
+
+            switch (cell){ 
+                case 0: //espacio vacio
+                    ctx.fillstyle = 'white'; 
+                    ctx.fillRect (x,y, game.anchoCelda, game.altoCelda);
+                
+                case 1: //pared
+                    ctx.fillstyle = 'grey'; 
+                    ctx.fillRect (x,y, game.anchoCelda, game.altoCelda); 
+
+                    break; 
+                default:
+                    break;
+            }
+        }
+    }
+}
 
 function updateGame(){
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    drawTank(playerTank);
-    drawEnemyTank(enemyTank1);
-    drawEnemyTank(enemyTank2);
-    drawEnemyTank(enemyTank3);
+    drawEscenario(ctx, escenario);
+
+    playerTank.drawTank(ctx);
+    enemyTank1.drawEnemyTank(ctx);
+    enemyTank2.drawEnemyTank(ctx); 
+    enemyTank3.drawEnemyTank(ctx);
     requestAnimationFrame(updateGame);
 }
 
