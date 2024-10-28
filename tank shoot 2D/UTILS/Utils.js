@@ -5,7 +5,7 @@ class Utils{
     }
 
     Redondear(valor){
-        return Math.round(valor/50);
+        return Math.round(valor);
     }
 }
 

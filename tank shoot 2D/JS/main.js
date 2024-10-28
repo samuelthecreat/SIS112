@@ -13,6 +13,7 @@ canvas.height = utilsObj.RoundTablero(canvas.height);
 
 console.log ('width', canvas.width);
 console.log ('height', canvas.height);
+
 }
 
 // Llamamos a la función al cargar la página
@@ -86,7 +87,7 @@ setInterval(() => {
     moveEnemyTankRandomly(enemyTank1);
     moveEnemyTankRandomly(enemyTank2);
     moveEnemyTankRandomly(enemyTank3);
-}, 1000)
+}, 1500)
 
 
 function updateGame(){
