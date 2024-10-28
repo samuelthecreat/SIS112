@@ -85,7 +85,7 @@ setInterval(() => {
     moveEnemyTankRandomly(enemyTank1);
     moveEnemyTankRandomly(enemyTank2);
     moveEnemyTankRandomly(enemyTank3);
-}, 500)
+}, 1000)
 
 
 function updateGame(){
