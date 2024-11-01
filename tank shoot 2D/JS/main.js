@@ -5,7 +5,7 @@ var utilsObj = new Utils();
 
 // Función para ajustar el tamaño del canvas a la ventana
 function resizeCanvas() {
-canvas.width = window.innerWidth * 0.9;
+canvas.width = window.innerHeight * 0.9;
 canvas.height = window.innerHeight * 0.9;
 
 canvas.width = utilsObj.RoundTablero(canvas.width);
@@ -75,12 +75,12 @@ function moveEnemyTankRandomly(enemyTank){
 }
 
 setInterval(() => {
-    moveEnemyTankRandomly(enemyTank1);
-    moveEnemyTankRandomly(enemyTank2);
-    moveEnemyTankRandomly(enemyTank3);
+    //moveEnemyTankRandomly(enemyTank1);
+    //moveEnemyTankRandomly(enemyTank2);
+    //moveEnemyTankRandomly(enemyTank3);
 }, 1000)
 
-const escenario = [
+/*const escenario = [
     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
     [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
     [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
@@ -107,11 +107,11 @@ function drawEscenario (ctx, escenario){
 
             switch (cell){ 
                 case 0: //espacio vacio
-                    ctx.fillstyle = 'white'; 
+                    ctx.fillstyle = "black"; 
                     ctx.fillRect (x,y, game.anchoCelda, game.altoCelda);
                 
                 case 1: //pared
-                    ctx.fillstyle = 'grey'; 
+                    ctx.fillstyle = "gray"; 
                     ctx.fillRect (x,y, game.anchoCelda, game.altoCelda); 
 
                     break; 
@@ -120,17 +120,98 @@ function drawEscenario (ctx, escenario){
             }
         }
     }
+}*/
+
+//13x15
+//Fondo = 0 negro
+//paredes = 1 cafe
+//muros = 2 gris
+const mapa = [
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 
+    [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1],
+    [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1],
+    [0, 0, 2, 1, 2, 1, 0, 1, 0, 0, 0, 0, 1],
+    [0, 1, 2, 0, 2, 1, 0, 2, 0, 0, 1, 0, 1],
+    [0, 1, 2, 0, 2, 1, 0, 2, 0, 1, 1, 0, 1],
+    [0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 1],
+    [0, 1, 1, 0, 1, 1, 0, 2, 0, 1, 0, 0, 1],
+    [0, 1, 0, 0, 0, 0, 0, 2, 0, 1, 1, 0, 1],
+    [0, 1, 0, 1, 0, 1, 0, 2, 2, 2, 2, 0, 1],
+    [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1],
+    [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1],
+    [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1],
+    [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+];
+const mapa2 = [
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 
+    [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1],
+    [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1],
+    [0, 0, 2, 1, 2, 1, 0, 1, 0, 0, 0, 0, 1],
+    [0, 1, 2, 0, 2, 1, 0, 2, 0, 0, 1, 0, 1],
+    [0, 1, 2, 0, 2, 1, 0, 2, 0, 1, 1, 0, 1],
+    [0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 1],
+    [0, 1, 1, 0, 1, 1, 0, 2, 0, 1, 0, 0, 1],
+    [0, 1, 0, 0, 0, 0, 0, 2, 0, 1, 1, 0, 1],
+    [0, 1, 0, 1, 0, 1, 0, 2, 2, 2, 2, 0, 1],
+    [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1],
+    [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1],
+    [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1],
+    [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+];
+
+function Dibujarcero (ctx, x, y, x1, y1){
+    ctx.fillStyle = "#000000";
+    ctx.fillRect(x, y, x1, y1);
 }
+
+function Dibujaruno(ctx, x, y, x1, y1){
+    ctx.fillStyle = "#742d1d";
+    ctx.fillRect(x, y, x1, y1);
+}
+
+function Dibujardos(ctx, x, y, x1, y1){
+    ctx.fillStyle = "#f9f5f4";
+    ctx.fillRect(x, y, x1, y1);
+}
+
+
+function DibujarMapa(ctx, mapa2){
+    for (let row = 0; row < mapa2.length; row++) {
+        for (let col = 0; col < mapa2[row].length; col++) {
+            const cell = mapa2[row][col];
+            const x = col * game.anchoCelda; 
+            const y = row * game.altoCelda;
+            //console.log(x, y);
+            switch (cell){
+                case 0: 
+                    Dibujarcero(ctx, x, y, game.anchoCelda, game.altoCelda); 
+                    break;
+                case 1: 
+                    Dibujaruno(ctx, x, y, game.anchoCelda, game.altoCelda);
+                    break;
+                case 2:
+                    Dibujardos(ctx, x, y, game.anchoCelda, game.altoCelda)
+                default:
+                    break;
+            }
+        }
+    }
+}
+
 
 function updateGame(){
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    drawEscenario(ctx, escenario);
-
-    playerTank.drawTank(ctx);
+    DibujarMapa (ctx, mapa2);
+    
+    //drawEscenario(ctx, escenario);
+    /*playerTank.drawTank(ctx);
     enemyTank1.drawEnemyTank(ctx);
     enemyTank2.drawEnemyTank(ctx); 
     enemyTank3.drawEnemyTank(ctx);
-    requestAnimationFrame(updateGame);
+    */
+   requestAnimationFrame(updateGame);
 }
 
 updateGame();
