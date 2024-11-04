@@ -144,7 +144,7 @@ const mapa = [
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 ];
 const mapa2 = [
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 
+    [0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0], 
     [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1],
     [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1],
     [0, 0, 2, 1, 2, 1, 0, 1, 0, 0, 0, 0, 1],
@@ -152,8 +152,8 @@ const mapa2 = [
     [0, 1, 2, 0, 2, 1, 0, 2, 0, 1, 1, 0, 1],
     [0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 1],
     [0, 1, 1, 0, 1, 1, 0, 2, 0, 1, 0, 0, 1],
-    [0, 1, 0, 0, 0, 0, 0, 2, 0, 1, 1, 0, 1],
-    [0, 1, 0, 1, 0, 1, 0, 2, 2, 2, 2, 0, 1],
+    [0, 1, 0, 0, 0, 0, 2, 2, 0, 1, 1, 0, 1],
+    [0, 1, 0, 2, 2, 2, 2, 2, 2, 2, 2, 0, 1],
     [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1],
     [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1],
     [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1],
@@ -177,10 +177,10 @@ function Dibujardos(ctx, x, y, x1, y1){
 }
 
 
-function DibujarMapa(ctx, mapa2){
-    for (let row = 0; row < mapa2.length; row++) {
-        for (let col = 0; col < mapa2[row].length; col++) {
-            const cell = mapa2[row][col];
+function DibujarMapa(ctx, mapa){
+    for (let row = 0; row < mapa.length; row++) {
+        for (let col = 0; col < mapa[row].length; col++) {
+            const cell = mapa[row][col];
             const x = col * game.anchoCelda; 
             const y = row * game.altoCelda;
             //console.log(x, y);
@@ -203,7 +203,7 @@ function DibujarMapa(ctx, mapa2){
 
 function updateGame(){
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    DibujarMapa (ctx, mapa2);
+    DibujarMapa (ctx, mapa);
     
     //drawEscenario(ctx, escenario);
     /*playerTank.drawTank(ctx);
