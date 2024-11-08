@@ -32,6 +32,147 @@ class Matriz {
         this.dibujarMatriz();
     }
 
+    llenarMatrizPrimeraFila(){
+        for (let i = 0 ; i < this.filas; i++) {
+            for (let j = 0; j< this.columnas; j++) {
+                if ( i == 0) {
+                    this.matriz[i][j] = 2;
+                } else {
+                    this.matriz[i][j] = 0;
+                }
+            }
+        }
+        this.dibujarMatriz();
+    }
+
+    llenarMatrizPrimeraColumna() {
+        for (let i = 0 ; i < this.filas; i++) {
+            for (let j = 0; j< this.columnas; j++) {
+                if ( j == 5) {
+                    this.matriz[i][j] = 2;
+                } else {
+                    this.matriz[i][j] = 0;
+                }
+            }
+        }
+        this.dibujarMatriz();
+    }
+
+    llenarMatrizDiagonalReverso() {
+        for (let i = 0 ; i < this.columnas; i++) {
+            for (let j = 0; j< this.filas; j++) {
+                if (i + j === this.columnas - 1) {
+                    this.matriz[i][j] = 1;
+                } else {
+                    this.matriz[i][j] = 0;
+                }
+            }
+        }
+        this.dibujarMatriz();
+    }
+
+    llenarMatrizBordesinternos() {
+        // Recorremos cada fila de la matriz
+        for (let i = 0; i < this.filas; i++) {
+            // Recorremos cada columna de la matriz
+            for (let j = 0; j < this.columnas; j++) {
+                // Si estamos en la primera o última fila (i === 0 o i === this.filas - 1)
+                // o en la primera o última columna (j === 0 o j === this.columnas - 1),
+                // estamos en el borde de la matriz y asignamos 2 en esa posición.
+
+            // Segunda fila, excluyendo las esquinas
+            if (i === 1 && j > 0 && j < this.columnas - 1) {
+                this.matriz[i][j] = 2;
+            }
+            // Penúltima fila, excluyendo las esquinas
+            else if (i === this.filas - 2 && j > 0 && j < this.columnas - 1) {
+                this.matriz[i][j] = 2;
+            }
+            // Segunda columna, excluyendo las esquinas
+            else if (j === 1 && i > 0 && i < this.filas - 1) {
+                this.matriz[i][j] = 2;
+            }
+            // Penúltima columna, excluyendo las esquinas
+            else if (j === this.columnas - 2 && i > 0 && i < this.filas - 1) {
+                this.matriz[i][j] = 2;
+            }
+            // Si no se cumple ninguna de las condiciones anteriores, asigna 0
+            else {
+                this.matriz[i][j] = 0;
+            }
+        }
+    }
+    this.dibujarMatriz();
+    }
+
+    llenarMatrizPiramide() {
+        // Calcular el centro de la matriz
+        const centro = Math.floor(this.columnas / 2);
+        
+        // Altura de la pirámide (mitad de la matriz)
+        const alturaPiramide = Math.floor(this.filas / 2);
+    
+        // Rellenar la pirámide
+        for (let i = 0; i < alturaPiramide; i++) {
+            // Calcular los límites de cada fila de la pirámide
+            const inicio = centro - i;
+            const fin = centro + i;
+    
+            for (let j = 0; j < this.columnas; j++) {
+                if (j >= inicio && j <= fin) {
+                    this.matriz[i][j] = 2; // Dibujar la pirámide en la parte superior
+                } else {
+                    this.matriz[i][j] = 0; // Resto en 0
+                }
+            }
+        }
+        this.dibujarMatriz();
+    }
+
+    llenarMatrizCuatroBordes() {
+        const mitadCol = Math.floor(this.columnas / 2); 
+        const mitadFil = Math.floor(this.filas / 2);
+
+        // Recorremos cada fila de la matriz
+        for (let i = 0; i < this.filas; i++) {
+            // Recorremos cada columna de la matriz
+            for (let j = 0; j < this.columnas; j++) {
+                if (i === 0 || i === this.filas - 1 || j === 0 || j === this.columnas - 1) {
+                    this.matriz[i][j] = 2;
+                } else {
+                    // Si no estamos en el borde, asignamos 0 en el interior.
+                    this.matriz[i][j] = 0;
+                }
+                if (j == mitadCol){
+                    this.matriz[i][j] = 2;
+                }
+                if (j == mitadCol-1){
+                    this.matriz[i][j] = 2;   
+                }
+                if (i == mitadFil){
+                    this.matriz[i][j] = 2;
+                }
+                if (i == mitadFil-1){
+                    this.matriz[i][j] = 2;
+                }
+            }
+        }
+        this.dibujarMatriz();
+    }
+
+    llenarMatrizSecuencia(){
+        for (let i = 0; i < this.filas; i++) {
+            // Recorremos cada columna de la matriz
+            for (let j = 0; j < this.columnas; j++) {
+                // Si la posición de la fila (i) es igual a la posición de la columna (j),
+                // estamos en la diagonal de la matriz. Asignamos 1 en esa posición.
+                
+            }
+        }
+        // Después de llenar la matriz con el patrón en diagonal, la dibujamos
+        this.dibujarMatriz();
+    }
+
     // Ejemplo 2: Patrón en Diagonal
     llenarMatrizDiagonal() {
         // Recorremos cada fila de la matriz
@@ -51,6 +192,7 @@ class Matriz {
         // Después de llenar la matriz con el patrón en diagonal, la dibujamos
         this.dibujarMatriz();
     }
+
 
     // Ejemplo 3: Patrón de Bordes
     llenarMatrizBordes() {
@@ -109,6 +251,11 @@ class Matriz {
         this.ctx.fillRect(x, y, ancho, alto);
         this.ctx.strokeStyle = "#ecf0f1";
         this.ctx.strokeRect(x, y, ancho, alto);
+        // Agregar el texto "0" centrado en el rectángulo
+         this.ctx.textAlign = "center";
+        this.ctx.textBaseline = "middle";
+        this.ctx.fillStyle = "#fff"; // Color del texto (blanco)
+        this.ctx.fillText("0", x + ancho / 2, y + alto / 2);
     }
 
     DibujarUno(x, y, ancho, alto) {
@@ -116,6 +263,12 @@ class Matriz {
         this.ctx.fillRect(x, y, ancho, alto);
         this.ctx.strokeStyle = "#ecf0f1";
         this.ctx.strokeRect(x, y, ancho, alto);
+         // Agregar el texto "1" centrado en el rectángulo
+        this.ctx.font = "bold 20px Arial"; // Ajustar la fuente y tamaño
+        this.ctx.textAlign = "center";
+        this.ctx.textBaseline = "middle";
+        this.ctx.fillStyle = "#fff"; // Color del texto (blanco)
+        this.ctx.fillText("1", x + ancho / 2, y + alto / 2);
     }
 
     DibujarDos(x, y, ancho, alto) {
@@ -123,5 +276,11 @@ class Matriz {
         this.ctx.fillRect(x, y, ancho, alto);
         this.ctx.strokeStyle = "#ecf0f1";
         this.ctx.strokeRect(x, y, ancho, alto);
+        // Agregar el texto "2" centrado en el rectángulo
+        this.ctx.font = "bold 20px Arial"; // Ajustar la fuente y tamaño
+        this.ctx.textAlign = "center";
+        this.ctx.textBaseline = "middle";
+        this.ctx.fillStyle = "#fff"; // Color del texto (blanco)
+        this.ctx.fillText("2", x + ancho / 2, y + alto / 2);
     }
 }
