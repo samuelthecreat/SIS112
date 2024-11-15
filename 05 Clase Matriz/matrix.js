@@ -23,6 +23,7 @@ class Matriz {
     }
 
     llenarMatrizConUnos() {
+        this.vaciarMatriz();
         for (let i = 0; i < this.columnas; i++) {
             for (let j = 0; j < this.filas; j++) {
                 this.matriz[i][j] = 1;
@@ -32,6 +33,7 @@ class Matriz {
     }
 
     llenarMarcoInterno() {
+        this.vaciarMatriz();
         for (let i = 0; i < this.columnas; i++) {
             for (let j = 0; j < this.filas; j++) {
                 if (i === 0 || i === this.columnas - 1 || j === 0 || j === this.filas - 1) {
@@ -45,6 +47,7 @@ class Matriz {
     }
 
     llenarCruces() {
+        this.vaciarMatriz();
         const midRow = Math.floor(this.filas / 2);
         const midCol = Math.floor(this.columnas / 2);
     
@@ -61,6 +64,7 @@ class Matriz {
     }
 
     llenarBordesDiagonales() {
+        this.vaciarMatriz();
         for (let i = 0; i < this.columnas; i++) {
             for (let j = 0; j < this.filas; j++) {
                 if (i === 0 || i === this.columnas - 1 || j === 0 || j === this.filas - 1) {
@@ -76,6 +80,7 @@ class Matriz {
     }
 
     llenarBandera() {
+        this.vaciarMatriz();
         const filasPorFranja = Math.floor(this.filas / 3);
     
         for (let i = 0; i < this.columnas; i++) {
@@ -93,6 +98,7 @@ class Matriz {
     }
 
     llenarRellenoAlterno() {
+        this.vaciarMatriz();
         for (let i = 0; i < this.columnas; i++) {
             for (let j = 0; j < this.filas; j++) 
                 this.matriz[j][i] = j % 2;
@@ -102,6 +108,7 @@ class Matriz {
         }
 
     llenarMatrizDiagonal() {
+        this.vaciarMatriz();
         // Recorremos cada fila de la matriz
         for (let i = 0; i < this.filas; i++) {
             // Recorremos cada columna de la matriz
@@ -121,6 +128,7 @@ class Matriz {
     }
 
     llenarEspiral() {
+        this.vaciarMatriz();
         let row = 0;
         let col = 0;
         let direction = 0; // 0: right, 1: down, 2: left, 3: up
@@ -172,6 +180,7 @@ class Matriz {
     }
 
     llenarTrianguloSuperiorIzquierdo() {
+        this.vaciarMatriz();
         for (let i = 0; i < this.columnas; i++) {
             for (let j = 0; j < this.filas; j++) {
                 if (j <= i) {
@@ -185,6 +194,7 @@ class Matriz {
     }
 
     llenarTrianguloInferiorDerecho() {
+        this.vaciarMatriz();
         for (let i = 0; i < this.columnas; i++) {
             for (let j = 0; j < this.filas; j++) {
                 if (i + j >= this.columnas - 1) {
@@ -198,6 +208,7 @@ class Matriz {
     }
 
     Cuadricula() {
+        this.vaciarMatriz();
         for (let i = 0; i < this.columnas; i++) {
             for (let j = 0; j < this.filas; j++) {
                 if (i === 0 || i === this.columnas - 1 || j === 0 || j === this.filas - 1) {
@@ -235,7 +246,8 @@ class Matriz {
         this.dibujarMatriz();
     }
     
-    crearRombosConcentricos(n) {
+    crearRombosConcentricos() {
+        this.vaciarMatriz();
         const centro = Math.floor(this.columnas / 2);
         const alturaPiramide = Math.floor(this.filas / 2);
     
@@ -261,6 +273,7 @@ class Matriz {
     }
 
     llenarCrucesConcentricas() {
+        this.vaciarMatriz();
         const midRow = Math.floor(this.filas / 2);
         const midCol = Math.floor(this.columnas / 2);
     
@@ -277,6 +290,7 @@ class Matriz {
     }
 
     llenarBandertrianguloderecha() {
+        this.vaciarMatriz();
         for (let i = 0; i < this.columnas; i++) {
             for (let j = 0; j < this.filas; j++) {
                 if (j <= i) {
@@ -290,6 +304,7 @@ class Matriz {
     }
 
     llenarCuadradoDentroDeCuadrado() {
+        this.vaciarMatriz();
         const midRow = Math.floor(this.filas / 2);
         const midCol = Math.floor(this.columnas / 2);
     
@@ -308,6 +323,7 @@ class Matriz {
     }
 
     llenarBordesYCentro() {
+        this.vaciarMatriz();
         const midRow = Math.floor(this.filas / 2);
         const midCol = Math.floor(this.columnas / 2);
     
@@ -326,6 +342,7 @@ class Matriz {
     }
 
     llenarLineasParalelas() {
+        this.vaciarMatriz();
         for (let i = 0; i < this.columnas; i++) {
             for (let j = 0; j < this.filas; j++) {
                 if (i === 0 || i === this.columnas - 1 || j === 0 || j === this.filas - 1) {
@@ -339,6 +356,7 @@ class Matriz {
     }
 
     llenarMarcasDeCruz() {
+        this.vaciarMatriz();
         const interval = 3; // Adjust the interval as needed
     
         for (let i = 0; i < this.columnas; i++) {
@@ -354,6 +372,7 @@ class Matriz {
     }
 
     llenarRomboDeEsquinas() {
+        this.vaciarMatriz();
         const midRow = Math.floor(this.filas / 2);
         const midCol = Math.floor(this.columnas / 2);
     
@@ -370,6 +389,7 @@ class Matriz {
     }
 
     llenarAjedrez() {
+        this.vaciarMatriz();
         for (let i = 0; i < this.columnas; i++) {
             for (let j = 0; j < this.filas; j++) {
                 this.matriz[i][j] = (i + j) % 2;
@@ -379,6 +399,7 @@ class Matriz {
     }
 
     llenarRelojDeArena() {
+        this.vaciarMatriz();
         const centro = Math.floor(this.filas / 2);
         for (let i = 0; i <= centro; i++) {
             for (let j = i; j < this.columnas - i; j++) {
