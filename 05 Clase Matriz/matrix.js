@@ -235,26 +235,29 @@ class Matriz {
         this.dibujarMatriz();
     }
     
-    crearRombosConcentricos(n) {{
-        const matriz = [];
-        const centro = Math.floor(n / 2);
-      
-        for (let i = 0; i < n; i++) {
-          matriz[i] = new Array(n).fill(0);
-          for (let j = 0; j < n; j++) {
-            matriz[i][j] = Math.abs(i - centro) + Math.abs(j - centro) <= i ? 1 : 0;
-          }
+    crearRombosConcentricos(n) {
+        const centro = Math.floor(this.columnas / 2);
+        const alturaPiramide = Math.floor(this.filas / 2);
+    
+        for (let i = 0; i < alturaPiramide; i++) {
+            const inicio = centro - i;
+            const fin = centro + i;
+    
+            for (let j = inicio; j <= fin; j++) {
+                this.matriz[i][j] = 1; 
+            }
         }
-      
-        return matriz;
-      }
-      
-      // Ejemplo de uso
-      const tamaño = 11;
-      const rombos = crearRombosConcentricos(tamaño);
-      
-      // Imprimir la matriz (puedes adaptarlo para tu uso específico)
-      rombos.forEach(fila => console.log(fila.join('')));
+    
+        for (let i = 0; i < alturaPiramide; i++) {
+            const inicio = centro - i;
+            const fin = centro + i;
+    
+            for (let j = inicio; j <= fin; j++) {
+                this.matriz[this.filas - 1 - i][j] = 1; 
+            }
+        }
+    
+        this.dibujarMatriz();
     }
 
     llenarCrucesConcentricas() {
@@ -376,13 +379,11 @@ class Matriz {
     }
 
     llenarRelojDeArena() {
-        const midRow = Math.floor(this.filas / 2);
-        const midCol = Math.floor(this.columnas / 2);
-    
-        for (let i = 0; i < this.columnas; i++) {
-            for (let j = 0; j < this.filas; j++) {
-                const distance = Math.max(Math.abs(i - midCol), Math.abs(j - midRow));
-                this.matriz[i][j] = distance <= midRow ? 1 : 0;
+        const centro = Math.floor(this.filas / 2);
+        for (let i = 0; i <= centro; i++) {
+            for (let j = i; j < this.columnas - i; j++) {
+                this.matriz[i][j] = 1;
+                this.matriz[this.filas - i - 1][j] = 1;
             }
         }
         this.dibujarMatriz();
