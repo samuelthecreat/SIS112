@@ -94,16 +94,12 @@ class Matriz {
 
     llenarRellenoAlterno() {
         for (let i = 0; i < this.columnas; i++) {
-            for (let j = 0; j < this.filas; j++) {
-                if (i === 0 || i === this.columnas - 1 || j === 0 || j === this.filas - 1) {
-                    this.matriz[j][i] = 1; 
-                } else {
-                    this.matriz[j][i] = j % 2;
-                }
+            for (let j = 0; j < this.filas; j++) 
+                this.matriz[j][i] = j % 2;
+                
             }
+            this.dibujarMatriz();
         }
-        this.dibujarMatriz();
-    }
 
     llenarMatrizDiagonal() {
         // Recorremos cada fila de la matriz
@@ -329,11 +325,10 @@ class Matriz {
     llenarLineasParalelas() {
         for (let i = 0; i < this.columnas; i++) {
             for (let j = 0; j < this.filas; j++) {
-                // Check if the current position is within a line
-                if (j % 2 === 0) {
-                    this.matriz[i][j] = 1;
+                if (i === 0 || i === this.columnas - 1 || j === 0 || j === this.filas - 1) {
+                    this.matriz[j][i] = 1; 
                 } else {
-                    this.matriz[i][j] = 0;
+                    this.matriz[j][i] = j % 2;
                 }
             }
         }
