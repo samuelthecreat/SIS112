@@ -105,7 +105,7 @@ class Matriz {
                 
             }
             this.dibujarMatriz();
-        }
+    }
 
     llenarMatrizDiagonal() {
         this.vaciarMatriz();
